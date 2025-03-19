@@ -72,24 +72,25 @@ export default function AlertsList() {
 
       <style jsx>{`
         .container {
-          padding: 20px;
+          padding: 40px;
           text-align: center;
           background: linear-gradient(to bottom, #87ceeb, #1e90ff);
           color: #fff;
           border-radius: 10px;
           box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+          font-family: 'Arial', sans-serif; /* Change to a professional font */
         }
         h2 {
-          margin-bottom: 20px;
-          font-size: 2rem;
+          margin-bottom: 30px;
+          font-size: 2.5rem;
           text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
         }
         .alert-card {
           background: rgba(255, 255, 255, 0.1);
-          padding: 15px;
+          padding: 20px;
           border-radius: 8px;
           box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
-          margin-bottom: 15px;
+          margin-bottom: 20px;
           text-align: left;
           transition: transform 0.2s;
         }
@@ -99,10 +100,25 @@ export default function AlertsList() {
         }
         .alert-field {
           background: rgba(255, 255, 255, 0.2);
-          padding: 10px;
-          margin: 5px 0;
+          padding: 15px;
+          margin: 10px 0;
           border-radius: 5px;
           box-shadow: 0 1px 3px rgba(255, 255, 255, 0.1);
+          font-size: 1rem; /* Increase font size for better readability */
+        }
+        @media (max-width: 600px) {
+          .container {
+            padding: 20px;
+          }
+          h2 {
+            font-size: 2rem;
+          }
+          .alert-card {
+            padding: 15px;
+          }
+          .alert-field {
+            padding: 10px;
+          }
         }
       `}</style>
     </div>
