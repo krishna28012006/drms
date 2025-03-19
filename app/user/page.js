@@ -16,23 +16,26 @@ export default function ComplaintBox() {
 
     async function fetchData() {
       try {
-        console.log("Fetching login details for:", userEmail);
-        const complaintRef = doc(db, "users", userEmail);
-        const complaintSnap = await getDoc(complaintRef);
+        console.log("Fetching user details for:", userEmail);
+        const userRef = doc(db, "users", userEmail);
+        const userSnap = await getDoc(userRef);
 
-        if (complaintSnap.exists()) {
-          const complaintData = complaintSnap.data();
-          console.log("login Data Found:", complaintData);
+        if (userSnap.exists()) {
+          const userData = userSnap.data();
+          console.log("User  Data Found:", userData);
+
+          // Exclude the password field
+          const { password, ...userDetails } = userData;
 
           // Convert object fields into an array for rendering
-          const formattedData = Object.entries(complaintData).map(([key, value]) => ({
+          const formattedData = Object.entries(userDetails).map(([key, value]) => ({
             field: key,
             value: value,
           }));
 
           setDataNodes(formattedData);
         } else {
-          console.warn("No login found.");
+          console.warn("No user found.");
           setDataNodes([]);
         }
       } catch (error) {
@@ -45,7 +48,7 @@ export default function ComplaintBox() {
 
   return (
     <div className="complaint-container">
-      <h2>Your login Details</h2>
+      <h2>Your Profile Details</h2>
       {dataNodes.length > 0 ? (
         <div className="complaint-card">
           {dataNodes.map((item, index) => (
@@ -62,9 +65,13 @@ export default function ComplaintBox() {
         .complaint-container {
           padding: 20px;
           text-align: center;
+          background-image: url('https://example.com/your-background-image.jpg'); /* Replace with your background image URL */
+          background-size: cover;
+          background-position: center;
+          min-height: 100vh; /* Ensure it covers the full height */
         }
         .complaint-card {
-          background: #f8f9fa;
+          background: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
           padding: 15px;
           border-radius: 10px;
           box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
