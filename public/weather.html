@@ -7,13 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body>
-    <div
-      class="overflow-hidden bg-white shadow-[0px_3px_6px_rgba(18,15,40,0.12)]"
-    >
+    <div class="overflow-hidden bg-white shadow-[0px_3px_6px_rgba(18,15,40,0.12)]">
       <!-- Header/Navigation -->
-      <header
-        class="flex flex-wrap gap-5 justify-between px-6 py-0.5 w-full bg-white shadow-[0px_0px_2px_rgba(23,26,31,0.12)] max-md:px-5 max-md:max-w-full"
-      >
+      <header class="flex justify-between items-center px-6 py-0.5 w-full bg-white shadow-[0px_0px_2px_rgba(23,26,31,0.12)] max-md:px-5">
         <div class="flex flex-wrap gap-10">
           <div class="flex flex-auto gap-2.5 my-auto text-3xl text-black">
             <img
@@ -23,113 +19,92 @@
             />
             <h1 class="flex-auto">Drainage Health Hub</h1>
           </div>
-          <nav class="flex items-center max-sm:hidden">
+        </div>
+
+        <!-- Navigation aligned to the right -->
+        <nav class="flex items-center ml-auto max-sm:hidden">
           <ul class="flex items-center h-[52px]">
             <li class="px-6 py-4 text-sm text-gray-600">
               <a href="#" class="text-sm font-bold text-indigo-500">Weather</a>
-               <div
-                class="absolute bottom-0 left-0 w-full h-1 bg-indigo-500 rounded-sm"
-              ></div>
+              <div class="absolute bottom-0 left-0 w-full h-1 bg-indigo-500 rounded-sm"></div>
             </li>
             <li class="relative px-6 py-4">
-              <a href="dashboard.html" 
-                >Dashboard</a >
-             
+              <a href="dashboard.html" class="text-sm font-semibold text-gray-600">Dashboard</a>
             </li>
             <li class="px-6 py-4 text-sm text-gray-600">
               <a href="awareness.html">Awareness</a>
             </li>
-             <div class="flex gap-4 items-center ml-6">
-            <button 
-            onclick="window.location.href = '/report.html';"
-            class="flex gap-1.5 items-center px-3.5 py-2 rounded border border-indigo-500"
-          >
-              <svg
-                width="17"
-                height="17"
-                viewBox="0 0 17 17"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-[16px] h-[16px]"
+            <li class="px-6 py-4 text-sm text-gray-600">
+              <a href="notifications.html">Notifications</a>
+            </li>
+            <div class="flex gap-4 items-center ml-6">
+              <button 
+                onclick="window.location.href = '/report.html';"
+                class="flex gap-1.5 items-center px-3.5 py-2 rounded border border-indigo-500"
               >
-                <path
-                  d="M8.5 14.77L8.5 2.22998"
-                  stroke="#5068E2"
-                  stroke-width="1.368"
-                  stroke-miterlimit="10"
-                  stroke-linecap="square"
-                ></path>
-                <path
-                  d="M6.21004 6.21997L6.21004 11.92L2.79004 11.92L6.21004 6.21997Z"
-                  stroke="#5068E2"
-                  stroke-width="1.368"
-                  stroke-miterlimit="10"
-                  stroke-linecap="square"
-                ></path>
-                <path
-                  d="M10.79 6.21997L10.79 11.92L14.21 11.92L10.79 6.21997Z"
-                  stroke="#5068E2"
-                  stroke-width="1.368"
-                  stroke-miterlimit="10"
-                  stroke-linecap="square"
-                ></path>
-              </svg>
-              <span class="text-sm text-indigo-500">Report Complaint</span>
-            </button>
-           
-          </div>
-
+                <svg
+                  width="17"
+                  height="17"
+                  viewBox="0 0 17 17"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-[16px] h-[16px]"
+                >
+                  <path
+                    d="M8.5 14.77L8.5 2.22998"
+                    stroke="#5068E2"
+                    stroke-width="1.368"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  ></path>
+                  <path
+                    d="M6.21004 6.21997L6.21004 11.92L2.79004 11.92L6.21004 6.21997Z"
+                    stroke="#5068E2"
+                    stroke-width="1.368"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  ></path>
+                  <path
+                    d="M10.79 6.21997L10.79 11.92L14.21 11.92L10.79 6.21997Z"
+                    stroke="#5068E2"
+                    stroke-width="1.368"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  ></path>
+                </svg>
+                <span class="text-sm text-indigo-500">Report Complaint</span>
+              </button>
+            </div>
+            <li class="px-6 py-4 text-sm text-gray-600">
+              <button onclick="window.location.href = '/user';" aria-label="User  profile">
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/53119bea54cabd52e163e5e199eb2b2f3c2bc32f1796c2be95faee30c1851277?placeholderIfAbsent=true&apiKey=e33f6de605444adab508234fcc8e6ca0"
+                  class="object-contain shrink-0 self-stretch w-9 rounded-2xl aspect-square"
+                  alt="User  profile"
+                />
+              </button>
+            </li>
           </ul>
         </nav>
-
-        </div>
-        <div class="flex gap-4 items-center my-auto">
-         
-          <img
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/3ae120e1b1a1a7830931582af4ef5b5dc53926b287c36190179f381259a11e48?placeholderIfAbsent=true&apiKey=e33f6de605444adab508234fcc8e6ca0"
-            class="object-contain shrink-0 self-stretch my-auto w-6 aspect-square"
-            alt="Search icon"
-          />
-          <button onclick="window.location.href = '/user';" aria-label="User profile">
-           
-          <img
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/53119bea54cabd52e163e5e199eb2b2f3c2bc32f1796c2be95faee30c1851277?placeholderIfAbsent=true&apiKey=e33f6de605444adab508234fcc8e6ca0"
-            class="object-contain shrink-0 self-stretch w-9 rounded-2xl aspect-square"
-            alt="User profile"
-          />
-          </button>
-        </div>
       </header>
 
       <!-- Hero Section -->
-      <section
-        class="overflow-hidden w-full text-white bg-neutral-800 max-md:max-w-full"
-      >
-        <div
-          class="flex relative flex-col w-full min-h-[640px] max-md:max-w-full"
-        >
+      <section class="overflow-hidden w-full text-white bg-neutral-800 max-md:max-w-full">
+        <div class="flex relative flex-col w-full min-h-[640px] max-md:max-w-full">
           <img
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/4c1b6391a4ca9846058a8bc439e6030de919ac8a9d2645d0367da2a60816bce0?placeholderIfAbsent=true&apiKey=e33f6de605444adab508234fcc8e6ca0"
             class="object-cover absolute inset-0 size-full"
             alt="Weather background"
           />
-          <div
-            class="flex relative flex-col justify-center items-center px-20 py-52 w-full bg-zinc-900 bg-opacity-40 max-md:px-5 max-md:py-24 max-md:max-w-full"
-          >
-            <div
-              class="flex flex-col items-center mb-0 max-w-full w-[852px] max-md:mb-2.5"
-            >
-              <h2
-                class="self-stretch text-6xl font-bold leading-none text-center max-md:max-w-full max-md:text-4xl"
-              >
+          <div class="flex relative flex-col justify-center items-center px-20 py-52 w-full bg-zinc-900 bg-opacity-40 max-md:px-5 max-md:py-24 max-md:max-w-full">
+            <div class="flex flex-col items-center mb-0 max-w-full w-[852px] max-md:mb-2.5">
+              <h2 class="self-stretch text-6xl font-bold leading-none text-center max-md:max-w-full max-md:text-4xl">
                 Real-Time Weather Alerts
               </h2>
               <p class="mt-6 text-2xl text-center max-md:max-w-full">
                 Stay informed with up-to-the-minute weather updates.
               </p>
-              <button
-                class="overflow-hidden px-5 py-3 mt-6 max-w-full text-lg leading-loose bg-indigo-500 rounded-sm border border-solid border-black border-opacity-0 w-[141px]"
-              >
+              <button class="overflow-hidden px-5 py-3 mt-6 max-w-full text-lg leading-loose bg-indigo-500 rounded-sm border border-solid border-black border-opacity-0 w-[141px]">
                 Learn More
               </button>
             </div>
@@ -137,70 +112,19 @@
         </div>
       </section>
 
-      <a class="weatherwidget-io" href="https://forecast7.com/en/16d3980d01/guntur/" data-label_1="GUNTUR DISTRICT" data-label_2="WEATHER" data-theme="original" data-basecolor="#7851ff" data-highcolor="#ffffff" data-lowcolor="#ffffff" data-suncolor="#ff9400" data-cloudcolor="#ffffff" data-raincolor="#00b1ff" >GUNTUR DISTRICT WEATHER</a>
+      <a class="weatherwidget-io" href="https://forecast7.com/en/16d3980d01/guntur/" data-label_1="GUNTUR DISTRICT" data-label_2="WEATHER" data-theme="original" data-basecolor="#7851ff" data-highcolor="#ffffff" data-lowcolor="#ffffff" data-suncolor="#ff9400" data-cloudcolor="#ffffff" data-raincolor="#00b1ff">GUNTUR DISTRICT WEATHER</a>
       <script>
-      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+        !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
       </script>
-          
-           
 
-  <div style="padding:75px; max-width:200%;" >
-    <iframe 
-      src="alertlist" 
-      width="200%" 
-      height="500px" 
-      style="border: none; width: 100vw; max-width: 100%;"
-    ></iframe>
-  </div>
-
-       
-
-     
-      
-    
-    <script>
-      (() => {
-        const state = {};
-
-        let context = null;
-        let nodesToDestroy = [];
-        let pendingUpdate = false;
-
-        function destroyAnyNodes() {
-          // destroy current view template refs before rendering again
-          nodesToDestroy.forEach((el) => el.remove());
-          nodesToDestroy = [];
-        }
-
-        // Function to update data bindings and loops
-        // call update() when you mutate state and need the updates to reflect
-        // in the dom
-        function update() {
-          if (pendingUpdate === true) {
-            return;
-          }
-          pendingUpdate = true;
-
-          document.querySelectorAll("[data-el='div-1']").forEach((el) => {
-            el.setAttribute("space", 24);
-          });
-
-          document.querySelectorAll("[data-el='div-2']").forEach((el) => {
-            el.setAttribute("space", 24);
-          });
-
-          document.querySelectorAll("[data-el='div-3']").forEach((el) => {
-            el.setAttribute("space", 31);
-          });
-
-          destroyAnyNodes();
-
-          pendingUpdate = false;
-        }
-
-        // Update with initial state on first load
-        update();
-      })();
-    </script>
+      <div style="padding:75px; max-width:200%;">
+        <iframe 
+          src="alertlist" 
+          width="200%" 
+          height="500px" 
+          style="border: none; width: 100vw; max-width: 100%;"
+        ></iframe>
+      </div>
+    </div>
   </body>
 </html>
