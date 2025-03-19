@@ -52,20 +52,20 @@ export default function AlertsList() {
       {loading ? (
         <p>Loading alerts...</p>
       ) : alerts.length > 0 ? (
-        alerts.map((alert) => (
-          <div key={alert.id} className="alert-card">
-            <div className="alert-field">
+        <div className="alerts-list">
+          {alerts.map((alert) => (
+            <div key={alert.id} className="alert-item">
               <strong>Alert ID:</strong> {alert.id}
+              {Object.entries(alert).map(([key, value]) =>
+                key !== "id" ? (
+                  <div key={key} className="alert-detail">
+                    <strong>{key}:</strong> {typeof value === "object" ? JSON.stringify(value) : value}
+                  </div>
+                ) : null
+              )}
             </div>
-            {Object.entries(alert).map(([key, value]) =>
-              key !== "id" ? (
-                <div key={key} className="alert-field">
-                  <strong>{key}:</strong> {typeof value === "object" ? JSON.stringify(value) : value}
-                </div>
-              ) : null
-            )}
-          </div>
-        ))
+          ))}
+        </div>
       ) : (
         <p>No alerts found.</p>
       )}
@@ -82,42 +82,33 @@ export default function AlertsList() {
         }
         h2 {
           margin-bottom: 30px;
-          font-size: 2.5rem;
+          font-size: 2rem; /* Reduced font size */
           color: #ff0000; /* Red heading */
           text-shadow: 1px 1px 2px rgba(255, 0, 0, 0.5);
         }
-        .alert-card {
+        .alerts-list {
+          text-align: left; /* Align text to the left */
+        }
+        .alert-item {
           background: rgba(255, 0, 0, 0.1); /* Light red background */
-          padding: 20px;
-          border-radius: 8px;
-          box-shadow: 0 2px 5px rgba(255, 0, 0, 0.2); /* Red shadow */
-          margin-bottom: 20px;
-          text-align: left;
-          transition: transform 0.2s;
-        }
-        .alert-card:hover {
-          transform: scale(1.02);
-          box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3); /* Darker red shadow on hover */
-        }
-        .alert-field {
-          background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
           padding: 15px;
-          margin: 10px 0;
           border-radius: 5px;
-          box-shadow: 0 1px 3px rgba(255, 255, 255, 0.1);
-          color: #fff; /* White text for alert fields */
+          box-shadow: 0 2px 5px rgba(255, 0, 0, 0.2); /* Red shadow */
+          margin-bottom: 15px;
+          font-size: 0.9rem; /* Reduced font size for alert items */
+        }
+        .alert-detail {
+          margin-top: 5px; /* Space between details */
+          color: #fff; /* White text for alert details */
         }
         @media (max-width: 600px) {
           .container {
             padding: 20px;
           }
           h2 {
-            font-size: 2rem;
+            font-size: 1.5rem; /* Further reduce heading size on small screens */
           }
-          .alert-card {
-            padding: 15px;
-          }
-          .alert-field {
+          .alert-item {
             padding: 10px;
           }
         }
