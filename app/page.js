@@ -15,7 +15,7 @@ export default function Home() {
                 className="object-contain shrink-0 my-auto w-9 aspect-square"
                 alt="Drainage Health Hub Logo"
               />
-              <h1 className="flex-auto">Drainage Health Hub</h1>
+              <h1 className="flex-auto">SMART DRAINAGE SYSTEM</h1>
             </div>
           </div>
           <div className="flex gap-4 my-auto text-sm leading-loose">
@@ -25,7 +25,7 @@ export default function Home() {
                 className="object-contain shrink-0 my-auto w-4 aspect-square"
                 alt="Sign in icon"
               />
-              <span>Sign In</span>
+              <span>Sign Up</span>
             </button>
           </div>
         </header>
