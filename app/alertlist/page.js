@@ -74,37 +74,38 @@ export default function AlertsList() {
         .container {
           padding: 40px;
           text-align: center;
-          background: linear-gradient(to bottom, #87ceeb, #1e90ff);
-          color: #fff;
+          background: #000; /* Black background */
+          color: #fff; /* White text */
           border-radius: 10px;
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-          font-family: 'Arial', sans-serif; /* Change to a professional font */
+          box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3); /* Red shadow */
+          font-family: 'Arial', sans-serif; /* Professional font */
         }
         h2 {
           margin-bottom: 30px;
           font-size: 2.5rem;
-          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+          color: #ff0000; /* Red heading */
+          text-shadow: 1px 1px 2px rgba(255, 0, 0, 0.5);
         }
         .alert-card {
-          background: rgba(255, 255, 255, 0.1);
+          background: rgba(255, 0, 0, 0.1); /* Light red background */
           padding: 20px;
           border-radius: 8px;
-          box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
+          box-shadow: 0 2px 5px rgba(255, 0, 0, 0.2); /* Red shadow */
           margin-bottom: 20px;
           text-align: left;
           transition: transform 0.2s;
         }
         .alert-card:hover {
           transform: scale(1.02);
-          box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+          box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3); /* Darker red shadow on hover */
         }
         .alert-field {
-          background: rgba(255, 255, 255, 0.2);
+          background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
           padding: 15px;
           margin: 10px 0;
           border-radius: 5px;
           box-shadow: 0 1px 3px rgba(255, 255, 255, 0.1);
-          font-size: 1rem; /* Increase font size for better readability */
+          color: #fff; /* White text for alert fields */
         }
         @media (max-width: 600px) {
           .container {
