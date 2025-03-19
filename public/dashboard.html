@@ -9,9 +9,7 @@
   <body>
     <div class="flex flex-col bg-white min-h-screen">
       <!-- Header Navigation -->
-      <header
-        class="flex justify-between items-center px-6 w-full h-14 bg-white shadow-sm"
-      >
+      <header class="flex justify-between items-center px-6 w-full h-14 bg-white shadow-sm">
         <!-- Logo and Brand -->
         <div class="flex gap-2.5 items-center">
           <div>
@@ -65,70 +63,65 @@
           <h1 class="text-3xl text-black">Drainage Health Hub</h1>
         </div>
 
-        <!-- Navigation Menu -->
-        <nav class="flex items-center max-sm:hidden">
+        <!-- Navigation Menu aligned to the right -->
+        <nav class="flex items-center ml-auto max-sm:hidden">
           <ul class="flex items-center h-[52px]">
             <li class="px-6 py-4 text-sm text-gray-600">
               <a href="weather.html">Weather</a>
             </li>
             <li class="relative px-6 py-4">
-              <a href="#" class="text-sm font-bold text-indigo-500"
-                >Dashboard</a
-              >
-              <div
-                class="absolute bottom-0 left-0 w-full h-1 bg-indigo-500 rounded-sm"
-              ></div>
+              <a href="#" class="text-sm font-bold text-indigo-500">Dashboard</a>
+              <div class="absolute bottom-0 left-0 w-full h-1 bg-indigo-500 rounded-sm"></div>
             </li>
             <li class="px-6 py-4 text-sm text-gray-600">
               <a href="awareness.html">Awareness</a>
             </li>
-             <div class="flex gap-4 items-center ml-6">
-            <button 
-            onclick="window.location.href = '/report.html';"
-            class="flex gap-1.5 items-center px-3.5 py-2 rounded border border-indigo-500"
-          >
-              <svg
-                width="17"
-                height="17"
-                viewBox="0 0 17 17"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-[16px] h-[16px]"
+            <li class="px-6 py-4 text-sm text-gray-600">
+              <a href="notifications.html">Notifications</a>
+            </li>
+            <div class="flex gap-4 items-center ml-6">
+              <button 
+                onclick="window.location.href = '/report.html';"
+                class="flex gap-1.5 items-center px-3.5 py-2 rounded border border-indigo-500"
               >
-                <path
-                  d="M8.5 14.77L8.5 2.22998"
-                  stroke="#5068E2"
-                  stroke-width="1.368"
-                  stroke-miterlimit="10"
-                  stroke-linecap="square"
-                ></path>
-                <path
-                  d="M6.21004 6.21997L6.21004 11.92L2.79004 11.92L6.21004 6.21997Z"
-                  stroke="#5068E2"
-                  stroke-width="1.368"
-                  stroke-miterlimit="10"
-                  stroke-linecap="square"
-                ></path>
-                <path
-                  d="M10.79 6.21997L10.79 11.92L14.21 11.92L10.79 6.21997Z"
-                  stroke="#5068E2"
-                  stroke-width="1.368"
-                  stroke-miterlimit="10"
-                  stroke-linecap="square"
-                ></path>
-              </svg>
-              <span class="text-sm text-indigo-500">Report Complaint</span>
-            </button>
-           
-          </div>
-
+                <svg
+                  width="17"
+                  height="17"
+                  viewBox="0 0 17 17"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="w-[16px] h-[16px]"
+                >
+                  <path
+                    d="M8.5 14.77L8.5 2.22998"
+                    stroke="#5068E2"
+                    stroke-width="1.368"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  ></path>
+                  <path
+                    d="M6.21004 6.21997L6.21004 11.92L2.79004 11.92L6.21004 6.21997Z"
+                    stroke="#5068E2"
+                    stroke-width="1.368"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  ></path>
+                  <path
+                    d="M10.79 6.21997L10.79 11.92L14.21 11.92L10.79 6.21997Z"
+                    stroke="#5068E2"
+                    stroke-width="1.368"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  ></path>
+                </svg>
+                <span class="text-sm text-indigo-500">Report Complaint</span>
+              </button>
+            </div>
           </ul>
         </nav>
 
         <!-- User Controls -->
         <div class="flex gap-4 items-center">
-          
-         
           <button aria-label="Notifications">
             <svg
               width="24"
@@ -151,37 +144,32 @@
               ></path>
             </svg>
           </button>
-          <button onclick="window.location.href = '/user';" aria-label="User profile">
-          <img
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/91f248d717f673e396c8b7088a81d3b5c3e199ce"
-            alt="User profile"
-            class="w-[36px] h-[36px] rounded-[18px]"
-          />
+          <button onclick="window.location.href = '/user';" aria-label="User  profile">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/91f248d717f673e396c8b7088a81d3b5c3e199ce"
+              alt="User  profile"
+              class="w-[36px] h-[36px] rounded-[18px]"
+            />
           </button>
         </div>
       </header>
 
       <main>
         <!-- Complaints Management Section -->
-        <section
-          class="flex flex-col items-center px-32 py-24 max-md:px-16 max-sm:px-6"
-        >
+        <section class="flex flex-col items-center px-32 py-24 max-md:px-16 max-sm:px-6">
           <h2 class="mb-6 text-3xl text-zinc-900">Manage Complaints</h2>
-          
-           
-           
-          
 
           <!-- Action Buttons -->
           <div class="flex flex-col gap-3 items-center mt-6">
             <button
-            onclick="window.location.href = '/report.html';"
+              onclick="window.location.href = '/report.html';"
               class="text-lg text-white bg-indigo-500 rounded h-[52px] w-[199px]"
             >
               Add New Complaint
             </button>
-            <button  onclick="window.location.href = '/complaints';" aria-label="complaints"
-           
+            <button
+              onclick="window.location.href = '/complaints';"
+              aria-label="complaints"
               class="text-lg text-indigo-500 bg-violet-50 rounded h-[52px] w-[200px]"
             >
               View All Complaints
@@ -189,15 +177,10 @@
           </div>
         </section>
 
-        
         <!-- Educational Resources Section -->
-        <section
-          class="flex flex-col items-center px-32 py-24 bg-white max-md:px-16 max-sm:px-6"
-        >
+        <section class="flex flex-col items-center px-32 py-24 bg-white max-md:px-16 max-sm:px-6">
           <h2 class="mb-6 text-3xl text-zinc-900">Educational Resources</h2>
-          <div
-            class="grid grid-cols-3 gap-6 w-full max-md:grid-cols-2 max-sm:grid-cols-1"
-          >
+          <div class="grid grid-cols-3 gap-6 w-full max-md:grid-cols-2 max-sm:grid-cols-1">
             <!-- Resource Card 1 -->
             <article class="flex flex-col gap-2">
               <figure>
@@ -207,12 +190,9 @@
                   class="w-full h-[180px] rounded-[3px] object-cover"
                 />
                 <figcaption>
-                  <h3 class="text-base font-bold text-zinc-900 mt-2">
-                    Drainage Guide
-                  </h3>
+                  <h3 class="text-base font-bold text-zinc-900 mt-2">Drainage Guide</h3>
                   <p class="text-sm text-zinc-400">
-                    Learn essential techniques for maintaining healthy drainage
-                    systems.
+                    Learn essential techniques for maintaining healthy drainage systems.
                   </p>
                 </figcaption>
               </figure>
@@ -227,12 +207,9 @@
                   class="w-full h-[180px] rounded-[3px] object-cover"
                 />
                 <figcaption>
-                  <h3 class="text-base font-bold text-zinc-900 mt-2">
-                    Blockage Prevention
-                  </h3>
+                  <h3 class="text-base font-bold text-zinc-900 mt-2">Blockage Prevention</h3>
                   <p class="text-sm text-zinc-400">
-                    Discover tips to prevent common drainage blockages
-                    effectively.
+                    Discover tips to prevent common drainage blockages effectively.
                   </p>
                 </figcaption>
               </figure>
@@ -247,12 +224,9 @@
                   class="w-full h-[180px] rounded-[3px] object-cover"
                 />
                 <figcaption>
-                  <h3 class="text-base font-bold text-zinc-900 mt-2">
-                    Material Analysis
-                  </h3>
+                  <h3 class="text-base font-bold text-zinc-900 mt-2">Material Analysis</h3>
                   <p class="text-sm text-zinc-400">
-                    Explore various materials used in constructing efficient
-                    drainage systems.
+                    Explore various materials used in constructing efficient drainage systems.
                   </p>
                 </figcaption>
               </figure>
