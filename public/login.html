@@ -128,15 +128,20 @@
                     stroke-linecap="square"
                   ></path>
                 </svg>
-                <input
-                 id="email"
-                  type="email"
-                  placeholder="Your email address"
-                  class="pr-4 pl-11 text-base bg-transparent size-full text-neutral-300"
-                  aria-label="Email address"
-                  name="user-email-unique" autocomplete="off" placeholder="Enter your email" readonly 
-                  onfocus="this.removeAttribute('readonly');"
-                />
+               <input
+  id="email"
+  type="email"
+  class="pr-4 pl-11 text-base bg-transparent size-full text-neutral-300"
+  aria-label="Email address"
+  name="user-email-unique"
+  autocomplete="off"
+  placeholder="Enter your email"
+  readonly
+  onfocus="this.removeAttribute('readonly');"
+  pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+  title="Please enter a valid email address"
+/>
+
               </div>
 
 
