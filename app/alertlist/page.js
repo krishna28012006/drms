@@ -74,32 +74,32 @@ export default function AlertsList() {
         .container {
           padding: 40px;
           text-align: center;
-          background: #000; /* Black background */
-          color: #fff; /* White text */
+          background: #f3f4f6; /* Light gray background */
+          color: #1f2937; /* Dark gray text */
           border-radius: 10px;
-          box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3); /* Red shadow */
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
           font-family: 'Arial', sans-serif; /* Professional font */
         }
         h2 {
           margin-bottom: 30px;
           font-size: 2rem; /* Reduced font size */
-          color: #ff0000; /* Red heading */
-          text-shadow: 1px 1px 2px rgba(255, 0, 0, 0.5);
+          color: #3f51b5; /* Indigo 500 color */
+          text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
         }
         .alerts-list {
           text-align: left; /* Align text to the left */
         }
         .alert-item {
-          background: rgba(255, 0, 0, 0.1); /* Light red background */
+          background: rgba(63, 81, 181, 0.1); /* Light indigo background */
           padding: 15px;
           border-radius: 5px;
-          box-shadow: 0 2px 5px rgba(255, 0, 0, 0.2); /* Red shadow */
+          box-shadow: 0 2px 5px rgba(63, 81, 181, 0.2); /* Indigo shadow */
           margin-bottom: 15px;
           font-size: 0.9rem; /* Reduced font size for alert items */
         }
         .alert-detail {
           margin-top: 5px; /* Space between details */
-          color: #fff; /* White text for alert details */
+          color: #1f2937; /* Dark gray text for alert details */
         }
         @media (max-width: 600px) {
           .container {
