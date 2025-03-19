@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drainage Health Hub - Weather Alerts</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div
+      class="overflow-hidden bg-white shadow-[0px_3px_6px_rgba(18,15,40,0.12)]"
+    >
+      <!-- Header/Navigation -->
+      <header
+        class="flex flex-wrap gap-5 justify-between px-6 py-0.5 w-full bg-white shadow-[0px_0px_2px_rgba(23,26,31,0.12)] max-md:px-5 max-md:max-w-full"
+      >
+        <div class="flex flex-wrap gap-10">
+          <div class="flex flex-auto gap-2.5 my-auto text-3xl text-black">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/d2c919099acbdbe0f99cce2a9420e0b55eb968b53422ce39b92f7e13f4d634e6?placeholderIfAbsent=true&apiKey=e33f6de605444adab508234fcc8e6ca0"
+              class="object-contain shrink-0 my-auto w-9 aspect-square"
+              alt="Drainage Health Hub Logo"
+            />
+            <h1 class="flex-auto">Drainage Health Hub</h1>
+          </div>
+          <nav
+            class="flex flex-auto text-sm leading-loose text-gray-600 whitespace-nowrap bg-black bg-opacity-0"
+          >
+            <div
+              class="flex overflow-hidden flex-col pt-4 font-bold text-indigo-500 rounded-sm bg-black bg-opacity-0"
+            >
+              <span class="self-center">Home</span>
+              <div
+                class="flex shrink-0 mt-3 h-1 bg-indigo-500 rounded-sm"
+              ></div>
+            </div>
+            <div
+              class="overflow-hidden px-6 py-4 rounded-sm bg-black bg-opacity-0 max-md:px-5"
+            >
+              Dashboard
+            </div>
+            <div
+              class="overflow-hidden px-6 py-4 rounded-sm bg-black bg-opacity-0 max-md:px-5"
+            >
+              Education
+            </div>
+          </nav>
+        </div>
+        <div class="flex gap-4 items-center my-auto">
+         
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/3ae120e1b1a1a7830931582af4ef5b5dc53926b287c36190179f381259a11e48?placeholderIfAbsent=true&apiKey=e33f6de605444adab508234fcc8e6ca0"
+            class="object-contain shrink-0 self-stretch my-auto w-6 aspect-square"
+            alt="Search icon"
+          />
+          <button onclick="window.location.href = '/user';" aria-label="User profile">
+           
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/53119bea54cabd52e163e5e199eb2b2f3c2bc32f1796c2be95faee30c1851277?placeholderIfAbsent=true&apiKey=e33f6de605444adab508234fcc8e6ca0"
+            class="object-contain shrink-0 self-stretch w-9 rounded-2xl aspect-square"
+            alt="User profile"
+          />
+          </button>
+        </div>
+      </header>
+
+      <!-- Hero Section -->
+      <section
+        class="overflow-hidden w-full text-white bg-neutral-800 max-md:max-w-full"
+      >
+        <div
+          class="flex relative flex-col w-full min-h-[640px] max-md:max-w-full"
+        >
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/4c1b6391a4ca9846058a8bc439e6030de919ac8a9d2645d0367da2a60816bce0?placeholderIfAbsent=true&apiKey=e33f6de605444adab508234fcc8e6ca0"
+            class="object-cover absolute inset-0 size-full"
+            alt="Weather background"
+          />
+          <div
+            class="flex relative flex-col justify-center items-center px-20 py-52 w-full bg-zinc-900 bg-opacity-40 max-md:px-5 max-md:py-24 max-md:max-w-full"
+          >
+            <div
+              class="flex flex-col items-center mb-0 max-w-full w-[852px] max-md:mb-2.5"
+            >
+              <h2
+                class="self-stretch text-6xl font-bold leading-none text-center max-md:max-w-full max-md:text-4xl"
+              >
+                Real-Time Weather Alerts
+              </h2>
+              <p class="mt-6 text-2xl text-center max-md:max-w-full">
+                Stay informed with up-to-the-minute weather updates.
+              </p>
+              <button
+                class="overflow-hidden px-5 py-3 mt-6 max-w-full text-lg leading-loose bg-indigo-500 rounded-sm border border-solid border-black border-opacity-0 w-[141px]"
+              >
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <a class="weatherwidget-io" href="https://forecast7.com/en/16d3980d01/guntur/" data-label_1="GUNTUR DISTRICT" data-label_2="WEATHER" data-theme="original" data-basecolor="#7851ff" data-highcolor="#ffffff" data-lowcolor="#ffffff" data-suncolor="#ff9400" data-cloudcolor="#ffffff" data-raincolor="#00b1ff" >GUNTUR DISTRICT WEATHER</a>
+      <script>
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+      </script>
+
+
+      <!-- Current Alerts Section -->
+      <section
+        class="flex flex-col justify-center items-center px-20 py-24 w-full bg-white max-md:px-5 max-md:max-w-full"
+      >
+        <div class="flex flex-col w-full max-w-[1176px] max-md:max-w-full">
+          <h2
+            class="self-center max-w-full text-3xl bg-white bg-opacity-0 text-zinc-900 w-[237px]"
+          >
+            Current Alerts
+          </h2>
+          <div class="mt-6 max-md:max-w-full" data-el="div-1">
+            <div class="flex gap-5 max-md:flex-col">
+              <article class="w-[33%] max-md:ml-0 max-md:w-full">
+                <div
+                  class="flex overflow-hidden flex-col grow items-start p-4 w-full text-sm leading-loose bg-white rounded-sm shadow-[0px_0px_2px_rgba(23,26,31,0.12)] text-zinc-400 max-md:mt-6"
+                >
+                  <h3 class="text-base font-bold leading-loose text-zinc-900">
+                    High Alert
+                  </h3>
+                  <p class="mt-2">New York City</p>
+                  <p class="mt-2">Severe Thunderstorm</p>
+                  <button
+                    class="overflow-hidden self-stretch px-16 py-2 mt-2 text-indigo-500 bg-white rounded-sm border border-indigo-500 border-solid max-md:px-5"
+                  >
+                    View Details
+                  </button>
+                </div>
+              </article>
+              <article class="ml-5 w-[33%] max-md:ml-0 max-md:w-full">
+                <div
+                  class="flex overflow-hidden flex-col grow items-start p-4 w-full text-sm leading-loose bg-white rounded-sm shadow-[0px_0px_2px_rgba(23,26,31,0.12)] text-zinc-400 max-md:mt-6"
+                >
+                  <h3 class="text-base font-bold leading-loose text-zinc-900">
+                    Critical Alert
+                  </h3>
+                  <p class="mt-2">Los Angeles</p>
+                  <p class="mt-2">Flash Flood</p>
+                  <button
+                    class="overflow-hidden self-stretch px-16 py-2 mt-2 text-indigo-500 bg-white rounded-sm border border-indigo-500 border-solid max-md:px-5"
+                  >
+                    View Details
+                  </button>
+                </div>
+              </article>
+              <article class="ml-5 w-[33%] max-md:ml-0 max-md:w-full">
+                <div
+                  class="flex overflow-hidden flex-col grow items-start p-4 w-full text-sm leading-loose bg-white rounded-sm shadow-[0px_0px_2px_rgba(23,26,31,0.12)] text-zinc-400 max-md:mt-6"
+                >
+                  <h3 class="text-base font-bold leading-loose text-zinc-900">
+                    Extreme Alert
+                  </h3>
+                  <p class="mt-2">Miami</p>
+                  <p class="mt-2">Hurricane Warning</p>
+                  <button
+                    class="overflow-hidden self-stretch px-16 py-2 mt-2 text-indigo-500 bg-white rounded-sm border border-indigo-500 border-solid max-md:px-5"
+                  >
+                    View Details
+                  </button>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Preparation Tips Section -->
+      <section
+        class="flex flex-col justify-center items-center px-20 py-24 w-full bg-white max-md:px-5 max-md:max-w-full"
+      >
+        <div class="flex flex-col w-full max-w-[1176px] max-md:max-w-full">
+          <h2 class="self-center text-3xl text-center text-zinc-900">
+            Preparation Tips
+          </h2>
+          <div class="mt-6 max-md:max-w-full" data-el="div-2">
+            <div class="flex gap-5 max-md:flex-col">
+              <article class="w-[33%] max-md:ml-0 max-md:w-full">
+                <div
+                  class="flex overflow-hidden flex-col grow p-4 w-full text-sm leading-loose bg-white rounded-sm shadow-[0px_0px_2px_rgba(23,26,31,0.12)] max-md:mt-6"
+                >
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/bb524a8b2db54c3d998c13bca53d49ad7c4839fba7529e642446dfa14dce03b1?placeholderIfAbsent=true&apiKey=e33f6de605444adab508234fcc8e6ca0"
+                    class="object-contain w-full rounded aspect-[2.12]"
+                    alt="Secure windows"
+                  />
+                  <h3
+                    class="self-start mt-2 text-base font-bold leading-loose text-zinc-900"
+                  >
+                    Secure Windows
+                  </h3>
+                  <p class="self-start mt-2 text-zinc-400">
+                    Secure windows with shutters or plywood.
+                  </p>
+                  <button
+                    class="overflow-hidden px-16 py-2 mt-2 text-indigo-500 bg-white rounded-sm border border-indigo-500 border-solid max-md:px-5"
+                  >
+                    Learn More
+                  </button>
+                </div>
+              </article>
+              <article class="ml-5 w-[33%] max-md:ml-0 max-md:w-full">
+                <div
+                  class="flex overflow-hidden flex-col grow p-4 w-full text-sm leading-loose bg-white rounded-sm shadow-[0px_0px_2px_rgba(23,26,31,0.12)] max-md:mt-6"
+                >
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/de2f442a7db5217019664b039d5195f78ff251fb4725c300b145dbe202dbc706?placeholderIfAbsent=true&apiKey=e33f6de605444adab508234fcc8e6ca0"
+                    class="object-contain w-full rounded aspect-[2.12]"
+                    alt="Emergency kit"
+                  />
+                  <h3
+                    class="self-start mt-2 text-base font-bold leading-loose text-zinc-900"
+                  >
+                    Emergency Kit
+                  </h3>
+                  <p class="self-start mt-2 text-zinc-400">
+                    Prepare an emergency kit with basics.
+                  </p>
+                  <button
+                    class="overflow-hidden px-16 py-2 mt-2 text-indigo-500 bg-white rounded-sm border border-indigo-500 border-solid max-md:px-5"
+                  >
+                    See Checklist
+                  </button>
+                </div>
+              </article>
+              <article class="ml-5 w-[33%] max-md:ml-0 max-md:w-full">
+                <div
+                  class="flex overflow-hidden flex-col grow p-4 w-full text-sm leading-loose bg-white rounded-sm shadow-[0px_0px_2px_rgba(23,26,31,0.12)] max-md:mt-6"
+                >
+                  <img
+                    src="https://cdn.builder.io/api/v1/image/assets/TEMP/8b5ad0a78a8b67e3546e6bc76fe68fa0d7b538ce7c45fbd38dcc716188a56d26?placeholderIfAbsent=true&apiKey=e33f6de605444adab508234fcc8e6ca0"
+                    class="object-contain w-full rounded aspect-[2.12]"
+                    alt="Stay informed"
+                  />
+                  <h3
+                    class="self-start mt-2 text-base font-bold leading-loose text-zinc-900"
+                  >
+                    Stay Informed
+                  </h3>
+                  <p class="self-start mt-2 text-zinc-400">
+                    Stay informed using a weather radio.
+                  </p>
+                  <button
+                    class="overflow-hidden px-16 py-2 mt-2 text-indigo-500 bg-white rounded-sm border border-indigo-500 border-solid max-md:px-5"
+                  >
+                    Get Updates
+                  </button>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+    </div>
+
+    <script>
+      (() => {
+        const state = {};
+
+        let context = null;
+        let nodesToDestroy = [];
+        let pendingUpdate = false;
+
+        function destroyAnyNodes() {
+          // destroy current view template refs before rendering again
+          nodesToDestroy.forEach((el) => el.remove());
+          nodesToDestroy = [];
+        }
+
+        // Function to update data bindings and loops
+        // call update() when you mutate state and need the updates to reflect
+        // in the dom
+        function update() {
+          if (pendingUpdate === true) {
+            return;
+          }
+          pendingUpdate = true;
+
+          document.querySelectorAll("[data-el='div-1']").forEach((el) => {
+            el.setAttribute("space", 24);
+          });
+
+          document.querySelectorAll("[data-el='div-2']").forEach((el) => {
+            el.setAttribute("space", 24);
+          });
+
+          document.querySelectorAll("[data-el='div-3']").forEach((el) => {
+            el.setAttribute("space", 31);
+          });
+
+          destroyAnyNodes();
+
+          pendingUpdate = false;
+        }
+
+        // Update with initial state on first load
+        update();
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drainage Health Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="flex flex-col bg-white min-h-screen">
+      <!-- Navigation Header -->
+      <header
+        class="flex justify-between items-center px-6 h-14 bg-white shadow-sm"
+      >
+        <div class="flex gap-2.5 items-center">
+          <div>
+            <svg
+              width="36"
+              height="37"
+              viewBox="0 0 36 37"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-[36px] h-[36px]"
+            >
+              <rect y="0.5" width="36" height="36" stroke="#BCC1CA"></rect>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M25.0554 8.69189V20.212L33.0665 14.2334L25.0554 8.69189Z"
+                fill="#70A0E9"
+              ></path>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M34.3676 33.173V16.9893L25.0493 23.9421V33.173H34.3676Z"
+                fill="#5068E2"
+              ></path>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M10.9506 33.1666V24.395L1.63232 33.1666H10.9506Z"
+                fill="#5068E2"
+              ></path>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M17.4943 14.1247L18.4912 15.1323L22.6573 19.3366V6.96081L17.9982 3.62329L13.3391 6.96081V17.8956L16.4464 15.0768L17.4943 14.1247Z"
+                fill="#92B7EE"
+              ></path>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M22.6 23.7343L17.3274 18.4114L13.2817 22.0823V33.2468H22.6V23.7343Z"
+                fill="#788BE9"
+              ></path>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M10.9506 8.67798L1.63232 15.353V28.54L10.9506 20.0795V8.67798Z"
+                fill="#70A0E9"
+              ></path>
+            </svg>
+          </div>
+          <h1 class="text-3xl leading-10 text-black">Drainage Health Hub</h1>
+        </div>
+        <nav class="flex items-center max-md:hidden">
+          <ul class="flex items-center">
+            <li class="px-6 text-sm text-gray-600 h-[52px] flex items-center">
+              Home
+            </li>
+            <li class="px-6 text-sm text-gray-600 h-[52px] flex items-center">
+             <a href="/dashboard.html">Dashboard</a> 
+            </li>
+            <li class="relative px-6 py-4">
+                <a href="#" class="text-sm font-bold text-indigo-500"
+                  >Awareness</a
+                >
+          </ul>
+          <div class="flex gap-4 items-center ml-6">
+            <button 
+            onclick="window.location.href = '/report.html';"
+            class="flex gap-1.5 items-center px-3.5 py-2 rounded border border-indigo-500"
+          >
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 17 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-[16px] h-[16px]"
+              >
+                <path
+                  d="M8.5 14.77L8.5 2.22998"
+                  stroke="#5068E2"
+                  stroke-width="1.368"
+                  stroke-miterlimit="10"
+                  stroke-linecap="square"
+                ></path>
+                <path
+                  d="M6.21004 6.21997L6.21004 11.92L2.79004 11.92L6.21004 6.21997Z"
+                  stroke="#5068E2"
+                  stroke-width="1.368"
+                  stroke-miterlimit="10"
+                  stroke-linecap="square"
+                ></path>
+                <path
+                  d="M10.79 6.21997L10.79 11.92L14.21 11.92L10.79 6.21997Z"
+                  stroke="#5068E2"
+                  stroke-width="1.368"
+                  stroke-miterlimit="10"
+                  stroke-linecap="square"
+                ></path>
+              </svg>
+              <span class="text-sm text-indigo-500">Report Complaint</span>
+            </button>
+           
+          </div>
+        </nav>
+      </header>
+
+      <!-- Hero Section -->
+      <section class="relative bg-neutral-800 h-[640px]">
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/d5cdf6d23b52d882d117b989208c9f6ed2987643"
+          alt="Drainage background"
+          class="absolute w-full h-full object-cover"
+        />
+        <div class="absolute inset-0 bg-zinc-900 bg-opacity-40"></div>
+        <div
+          class="flex relative flex-col justify-center items-center px-6 h-full text-center"
+        >
+          <h2
+            class="text-6xl font-bold text-white leading-[84px] max-md:text-5xl max-md:leading-[64px] max-sm:text-4xl max-sm:leading-10"
+          >
+            Ensuring Drainage Health
+          </h2>
+          <p
+            class="mt-6 text-2xl leading-9 text-white max-md:text-xl max-md:leading-8 max-sm:text-base max-sm:leading-6"
+          >
+            Your guide to sustainable and efficient drainage solutions.
+          </p>
+          <button
+            class="px-5 py-3 mt-6 text-lg text-white bg-indigo-500 rounded-sm"
+          >
+            Learn More
+          </button>
+        </div>
+      </section>
+
+      <!-- Educational Materials Section -->
+      <section class="px-32 py-24 max-md:px-16 max-sm:px-6">
+        <h2 class="mb-6 text-3xl leading-10 text-center text-zinc-900">
+          Educational Materials
+        </h2>
+        <div
+          class="grid grid-cols-3 gap-6 max-md:grid-cols-2 max-sm:grid-cols-1"
+        >
+          <!-- Card 1 -->
+          <article class="flex flex-col">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/17e7438bde953146b13e6bd70bf58a76a84968f0"
+              alt="Urban drainage"
+              class="w-full h-[180px] rounded-[3px] object-cover"
+            />
+            <h3 class="mt-2 text-base font-bold leading-7 text-zinc-900">
+              Urban Drainage
+            </h3>
+            <p class="mt-2 text-sm leading-6 text-zinc-400">
+              Learn about urban drainage systems and their maintenance.
+            </p>
+            <button
+              class="py-2 mt-2 w-full text-sm text-indigo-500 rounded-sm border border-indigo-500"
+            >
+              Learn More
+            </button>
+          </article>
+
+          <!-- Card 2 -->
+          <article class="flex flex-col">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/a596ac35f8f2ed27b4a3dffcd2ca20e12892436f"
+              alt="Rural networks"
+              class="w-full h-[180px] rounded-[3px] object-cover"
+            />
+            <h3 class="mt-2 text-base font-bold leading-7 text-zinc-900">
+              Rural Networks
+            </h3>
+            <p class="mt-2 text-sm leading-6 text-zinc-400">
+              Explore drainage networks in rural areas.
+            </p>
+            <button
+              class="py-2 mt-2 w-full text-sm text-indigo-500 rounded-sm border border-indigo-500"
+            >
+              Learn More
+            </button>
+          </article>
+
+          <!-- Card 3 -->
+          <article class="flex flex-col">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/f93e9ed7a6cc30761f82e2ee593d3e1384313f55"
+              alt="Stormwater management"
+              class="w-full h-[180px] rounded-[3px] object-cover"
+            />
+            <h3 class="mt-2 text-base font-bold leading-7 text-zinc-900">
+              Stormwater Mgmt
+            </h3>
+            <p class="mt-2 text-sm leading-6 text-zinc-400">
+              Understanding stormwater management techniques.
+            </p>
+            <button
+              class="py-2 mt-2 w-full text-sm text-indigo-500 rounded-sm border border-indigo-500"
+            >
+              Learn More
+            </button>
+          </article>
+
+          <!-- Card 4 -->
+          <article class="flex flex-col">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/cb7023086cfbc574fa4668b9c5619f852ceb01fa"
+              alt="Sustainable practices"
+              class="w-full h-[180px] rounded-[3px] object-cover"
+            />
+            <h3 class="mt-2 text-base font-bold leading-7 text-zinc-900">
+              Sustainable Practices
+            </h3>
+            <p class="mt-2 text-sm leading-6 text-zinc-400">
+              Discover sustainable drainage practices.
+            </p>
+            <button
+              class="py-2 mt-2 w-full text-sm text-indigo-500 rounded-sm border border-indigo-500"
+            >
+              Learn More
+            </button>
+          </article>
+
+          <!-- Card 5 -->
+          <article class="flex flex-col">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/6ced995e74961f2cbeaa983063b3faeb4a0938c4"
+              alt="Drainage inspection"
+              class="w-full h-[180px] rounded-[3px] object-cover"
+            />
+            <h3 class="mt-2 text-base font-bold leading-7 text-zinc-900">
+              Drainage Inspection
+            </h3>
+            <p class="mt-2 text-sm leading-6 text-zinc-400">
+              Learn how drainage inspections are conducted.
+            </p>
+            <button
+              class="py-2 mt-2 w-full text-sm text-indigo-500 rounded-sm border border-indigo-500"
+            >
+              Learn More
+            </button>
+          </article>
+
+          <!-- Card 6 -->
+          <article class="flex flex-col">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/0952ea7f8ac961442c19925d1be6e28f3dafe564"
+              alt="Flood prevention"
+              class="w-full h-[180px] rounded-[3px] object-cover"
+            />
+            <h3 class="mt-2 text-base font-bold leading-7 text-zinc-900">
+              Flood Prevention
+            </h3>
+            <p class="mt-2 text-sm leading-6 text-zinc-400">
+              Explore methods for preventing floods.
+            </p>
+            <button
+              class="py-2 mt-2 w-full text-sm text-indigo-500 rounded-sm border border-indigo-500"
+            >
+              Learn More
+            </button>
+          </article>
+        </div>
+      </section>
+
+      <!-- Best Practices Section -->
+      <section class="px-44 py-24 bg-white max-md:px-16 max-sm:px-6">
+        <h2 class="mb-6 text-3xl leading-10 text-center text-zinc-900">
+          Best Practices
+        </h2>
+        <div
+          class="grid grid-cols-3 gap-6 max-md:grid-cols-2 max-sm:grid-cols-1"
+        >
+          <!-- Practice 1 -->
+          <article class="flex flex-col items-center text-center">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/77312d7a5ae14f82d463a4f18f35614c3a9cbeb3"
+              alt="Regular cleaning icon"
+              class="w-[50px] h-[50px]"
+            />
+            <h3 class="mt-2 text-2xl leading-9 text-black">Regular Cleaning</h3>
+            <p class="mt-2 text-base leading-7 text-gray-600">
+              Ensure routine cleaning to prevent clogs and maintain water flow.
+            </p>
+          </article>
+
+          <!-- Practice 2 -->
+          <article class="flex flex-col items-center text-center">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/430c58024a5d37b2f1bc655ebe2a1af8f05cdd06"
+              alt="Inspection icon"
+              class="w-[50px] h-[50px]"
+            />
+            <h3 class="mt-2 text-2xl leading-9 text-black">
+              Inspection &amp; Repairs
+            </h3>
+            <p class="mt-2 text-base leading-7 text-gray-600">
+              Regular inspections help identify issues before they escalate.
+            </p>
+          </article>
+
+          <!-- Practice 3 -->
+          <article class="flex flex-col items-center text-center">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/e6aba37811ee43be057224f5bf6111e90b1454d5"
+              alt="Safety icon"
+              class="w-[50px] h-[50px]"
+            />
+            <h3 class="mt-2 text-2xl leading-9 text-black">
+              Safety Precautions
+            </h3>
+            <p class="mt-2 text-base leading-7 text-gray-600">
+              Always prioritize safety; wear appropriate gear during
+              maintenance.
+            </p>
+          </article>
+
+          <!-- Practice 4 -->
+          <article class="flex flex-col items-center text-center">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/55cc0b4ace8f574140f9490488682b5d46fd7c1e"
+              alt="Chemical warning icon"
+              class="w-[50px] h-[50px]"
+            />
+            <h3 class="mt-2 text-2xl leading-9 text-black">
+              Avoid Chemical Drain Cleaners
+            </h3>
+            <p class="mt-2 text-base leading-7 text-gray-600">
+              These can damage pipes; use safer alternatives instead.
+            </p>
+          </article>
+
+          <!-- Practice 5 -->
+          <article class="flex flex-col items-center text-center">
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/5904a564fdbb80c792ef6a83185c1a092646dbc9"
+              alt="Disposal icon"
+              class="w-[50px] h-[50px]"
+            />
+            <h3 class="mt-2 text-2xl leading-9 text-black">
+              Appropriate Disposals
+            </h3>
+            <p class="mt-2 text-base leading-7 text-gray-600">
+              Dispose waste properly to prevent drainage system blockage.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <!-- Safety Guidelines Section -->
+      <section class="py-24 bg-white px-[470px] max-md:px-16 max-sm:px-6">
+        <div class="mx-auto text-center max-w-[500px]">
+          <h2 class="mb-6 text-3xl leading-10 text-zinc-900">
+            Safety Guidelines
+          </h2>
+          <div class="text-base leading-7 text-black text-left">
+            <p>Drainage systems should be considered as confined spaces.</p>
+
+            <ol class="list-decimal pl-5 space-y-4 mt-4">
+              <li>
+                Always wear appropriate personal protective equipment (PPE)
+                including gloves, goggles, and safety footwear.
+              </li>
+
+              <li>
+                Ensure proper ventilation when working in or near drainage
+                systems to avoid inhaling harmful substances.
+              </li>
+
+              <li>
+                Use handrails and maintain three points of contact on ladders to
+                prevent falls.
+              </li>
+
+              <li>
+                Be cautious of sharp objects and potential pollutants in the
+                drainage area.
+              </li>
+
+              <li>
+                Implement lockout/tagout procedures to ensure machinery is
+                deactivated during maintenance.
+              </li>
+
+              <li>
+                Handle chemical substances with care and follow safety data
+                sheets for guidance.
+              </li>
+            </ol>
+
+            <p class="mt-4">
+              Take these precautions seriously to ensure a safe working
+              environment.
+            </p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

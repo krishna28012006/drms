@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drainage Health Hub</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div class="flex flex-col bg-white min-h-screen">
+      <!-- Header Navigation -->
+      <header
+        class="flex justify-between items-center px-6 w-full h-14 bg-white shadow-sm"
+      >
+        <!-- Logo and Brand -->
+        <div class="flex gap-2.5 items-center">
+          <div>
+            <svg
+              width="36"
+              height="37"
+              viewBox="0 0 36 37"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-[36px] h-[36px]"
+            >
+              <rect y="0.5" width="36" height="36" stroke="#BCC1CA"></rect>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M25.0554 8.69189V20.212L33.0665 14.2334L25.0554 8.69189Z"
+                fill="#70A0E9"
+              ></path>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M34.3676 33.173V16.9893L25.0493 23.9421V33.173H34.3676Z"
+                fill="#5068E2"
+              ></path>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M10.9506 33.1666V24.395L1.63232 33.1666H10.9506Z"
+                fill="#5068E2"
+              ></path>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M17.4943 14.1247L18.4912 15.1323L22.6573 19.3366V6.96081L17.9982 3.62329L13.3391 6.96081V17.8956L16.4464 15.0768L17.4943 14.1247Z"
+                fill="#92B7EE"
+              ></path>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M22.6 23.7343L17.3274 18.4114L13.2817 22.0823V33.2468H22.6V23.7343Z"
+                fill="#788BE9"
+              ></path>
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M10.9506 8.67798L1.63232 15.353V28.54L10.9506 20.0795V8.67798Z"
+                fill="#70A0E9"
+              ></path>
+            </svg>
+          </div>
+          <h1 class="text-3xl text-black">Drainage Health Hub</h1>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="flex items-center max-sm:hidden">
+          <ul class="flex items-center h-[52px]">
+            <li class="px-6 py-4 text-sm text-gray-600">
+              <a href="#">Home</a>
+            </li>
+            <li class="relative px-6 py-4">
+              <a href="#" class="text-sm font-bold text-indigo-500"
+                >Dashboard</a
+              >
+              <div
+                class="absolute bottom-0 left-0 w-full h-1 bg-indigo-500 rounded-sm"
+              ></div>
+            </li>
+            <li class="px-6 py-4 text-sm text-gray-600">
+              <a href="awareness.html">Awareness</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- User Controls -->
+        <div class="flex gap-4 items-center">
+          
+         
+          <button aria-label="Notifications">
+            <svg
+              width="24"
+              height="25"
+              viewBox="0 0 24 25"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="w-[24px] h-[24px]"
+            >
+              <path
+                d="M18.02 11.64V9.06004C18.02 5.73528 15.3248 3.04004 12 3.04004C8.67527 3.04004 5.98002 5.73528 5.98002 9.06004V11.64C5.98002 14.478 3.40002 15.166 3.40002 16.8C3.40002 18.262 6.75402 19.38 12 19.38C17.246 19.38 20.6 18.262 20.6 16.8C20.6 15.166 18.02 14.478 18.02 11.64Z"
+                stroke="black"
+                stroke-width="2.064"
+                stroke-miterlimit="10"
+                stroke-linecap="round"
+              ></path>
+              <path
+                d="M12 21.0631C11.1305 21.0631 10.3135 21.0338 9.54468 20.9771C9.88108 22.0501 10.8754 22.7805 12 22.7805C13.1246 22.7805 14.1189 22.0501 14.4553 20.9771C13.6864 21.0338 12.8694 21.0631 12 21.0631Z"
+                fill="black"
+              ></path>
+            </svg>
+          </button>
+          <button onclick="window.location.href = '/user';" aria-label="User profile">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/91f248d717f673e396c8b7088a81d3b5c3e199ce"
+            alt="User profile"
+            class="w-[36px] h-[36px] rounded-[18px]"
+          />
+          </button>
+        </div>
+      </header>
+
+      <main>
+        <!-- Complaints Management Section -->
+        <section
+          class="flex flex-col items-center px-32 py-24 max-md:px-16 max-sm:px-6"
+        >
+          <h2 class="mb-6 text-3xl text-zinc-900">Manage Complaints</h2>
+          
+           
+           
+          
+
+          <!-- Action Buttons -->
+          <div class="flex flex-col gap-3 items-center mt-6">
+            <button
+            onclick="window.location.href = '/report.html';"
+              class="text-lg text-white bg-indigo-500 rounded h-[52px] w-[199px]"
+            >
+              Add New Complaint
+            </button>
+            <button  onclick="window.location.href = '/complaints';" aria-label="complaints"
+           
+              class="text-lg text-indigo-500 bg-violet-50 rounded h-[52px] w-[200px]"
+            >
+              View All Complaints
+            </button>
+          </div>
+        </section>
+
+        <!-- Weather Alerts Section -->
+        <section
+          class="flex flex-col items-center px-32 py-24 bg-white max-md:px-16 max-sm:px-6"
+        >
+          <h2 class="mb-6 text-3xl text-zinc-900">Weather Alerts</h2>
+          <div class="mb-6 w-full max-sm:overflow-x-auto">
+       
+            <iframe src="alertlist" width="100%" height="500px" style="border: none;"></iframe>
+    
+          </div>
+        </section>
+
+        <!-- Educational Resources Section -->
+        <section
+          class="flex flex-col items-center px-32 py-24 bg-white max-md:px-16 max-sm:px-6"
+        >
+          <h2 class="mb-6 text-3xl text-zinc-900">Educational Resources</h2>
+          <div
+            class="grid grid-cols-3 gap-6 w-full max-md:grid-cols-2 max-sm:grid-cols-1"
+          >
+            <!-- Resource Card 1 -->
+            <article class="flex flex-col gap-2">
+              <figure>
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/5fae37e7a64db378f6fa724419240e0473cab03d"
+                  alt="Drainage Guide"
+                  class="w-full h-[180px] rounded-[3px] object-cover"
+                />
+                <figcaption>
+                  <h3 class="text-base font-bold text-zinc-900 mt-2">
+                    Drainage Guide
+                  </h3>
+                  <p class="text-sm text-zinc-400">
+                    Learn essential techniques for maintaining healthy drainage
+                    systems.
+                  </p>
+                </figcaption>
+              </figure>
+            </article>
+
+            <!-- Resource Card 2 -->
+            <article class="flex flex-col gap-2">
+              <figure>
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/ba427582a7df70b93d3da16aa0a715172f1a669b"
+                  alt="Blockage Prevention"
+                  class="w-full h-[180px] rounded-[3px] object-cover"
+                />
+                <figcaption>
+                  <h3 class="text-base font-bold text-zinc-900 mt-2">
+                    Blockage Prevention
+                  </h3>
+                  <p class="text-sm text-zinc-400">
+                    Discover tips to prevent common drainage blockages
+                    effectively.
+                  </p>
+                </figcaption>
+              </figure>
+            </article>
+
+            <!-- Resource Card 3 -->
+            <article class="flex flex-col gap-2">
+              <figure>
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets/TEMP/d36760e11249baa23f449db596dd0086f2a9df8f"
+                  alt="Material Analysis"
+                  class="w-full h-[180px] rounded-[3px] object-cover"
+                />
+                <figcaption>
+                  <h3 class="text-base font-bold text-zinc-900 mt-2">
+                    Material Analysis
+                  </h3>
+                  <p class="text-sm text-zinc-400">
+                    Explore various materials used in constructing efficient
+                    drainage systems.
+                  </p>
+                </figcaption>
+              </figure>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdminHub Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    // ✅ Import Firebase Services
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+    import {
+      getFirestore,
+      collection,
+      addDoc
+    } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+    // ✅ Firebase Config
+    const firebaseConfig = {
+      apiKey: "AIzaSyA8s1TWWjx3pYrYZjbw243RBACYkZrtmSo",
+      authDomain: "drms-44bcc.firebaseapp.com",
+      projectId: "drms-44bcc",
+      storageBucket: "drms-44bcc.appspot.com",
+      messagingSenderId: "111500403496",
+      appId: "1:111500403496:web:730530ae3533dd89e1261d",
+      measurementId: "G-Y2XMZMD1L7"
+    };
+
+    // ✅ Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    console.log("Firebase Initialized ✅");
+
+    // ✅ Add Alert Function
+    async function addAlert(alertType, alertMessage, effectiveDate) {
+      try {
+        const alertsCollectionRef = collection(db, "alerts");
+        const docRef = await addDoc(alertsCollectionRef, {
+          alertType,
+          alertMessage,
+          effectiveDate,
+          timestamp: new Date() // Store the timestamp of when the alert was added
+        });
+        console.log("Alert added with ID:", docRef.id);
+        alert("Alert added successfully!");
+      } catch (error) {
+        console.error("Error adding alert:", error);
+        alert("Something went wrong. Please try again.");
+      }
+    }
+
+    // ✅ Event Listener for Form Submission
+    document.addEventListener("DOMContentLoaded", () => {
+      const form = document.querySelector('form'); // Select the form element
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault(); // Prevent the form from submitting the traditional way
+
+        const alertType = document.getElementById("alertType").value;
+        const alertMessage = document.getElementById("alertMessage").value.trim();
+        const effectiveDate = document.getElementById("effectiveDate").value;
+
+        // Validate form inputs
+        if (!alertType || !alertMessage || !effectiveDate) {
+          alert("Please fill out all fields.");
+          return;
+        }
+
+        // Call the function to add the alert to Firestore
+        addAlert(alertType, alertMessage, effectiveDate);
+      });
+    });
+  </script>
+</head>
+<body class="bg-white">
+
+<main class="flex flex-col justify-center items-center p-6 bg-white min-h-[screen]">
+  <div class="flex flex-col gap-6 w-[400px] max-sm:w-full">
+    <!-- Alert Form Section -->
+    <form class="flex flex-col gap-4">
+      <div class="flex justify-between items-center w-full">
+        <label for="alertType" class="text-base leading-7 text-black">Alert Type:</label>
+        <div class="relative w-[252px]">
+          <select
+            id="alertType"
+            class="flex justify-between items-center px-4 h-11 bg-white rounded border border-black w-full appearance-none cursor-pointer"
+          >
+            <option selected disabled>Select Alert Type</option>
+            <option value="heat">Heat Advisory</option>
+            <option value="tornado">Tornado Warning</option>
+            <option value="flood">Flood Warning</option>
+          </select>
+          <div
+            class="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none"
+          >
+            <svg
+              width="20"
+              height="21"
+              viewBox="0 0 20 21"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M2.18994 7.65997L9.99994 13.34L17.8099 7.65997"
+                stroke="black"
+                stroke-width="1.704"
+                stroke-miterlimit="10"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-2">
+        <label for="alertMessage" class="text-base leading-7 text-black">Alert Message:</label>
+        <input
+          type="text"
+          id="alertMessage"
+          placeholder="Enter alert message"
+          class="px-4 w-full text-base leading-7 rounded-sm border border-neutral-300 h-[43px] text-black placeholder-neutral-300"
+        />
+      </div>
+
+      <div class="flex justify-between items-center w-full">
+        <label for="effectiveDate" class="text-base leading-7 text-black">Effective Date:</label>
+        <div class="relative w-[252px]">
+          <input
+            type="date"
+            id="effectiveDate"
+            value="2023-10-29"
+            class="flex justify-between items-center px-4 h-11 bg-white rounded border border-black w-full appearance-none"
+          />
+          <div
+            class="absolute left-4 top-1/2 transform -translate-y-1/2 pointer-events-none"
+          >
+            <svg
+              width="21"
+              height="21"
+              viewBox="0 0 21 21"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M14.0698 4.77499L14.0698 2.64499"
+                stroke="black"
+                stroke-width="1.704"
+                stroke-miterlimit="10"
+                stroke-linecap="square"
+              ></path>
+              <path
+                d="M6.93018 4.77499L6.93018 2.64499"
+                stroke="black"
+                stroke-width="1.704"
+                stroke-miterlimit="10"
+                stroke-linecap="square"
+              ></path>
+              <path
+                d="M2.68994 7.63998L18.3099 7.63998"
+                stroke="black"
+                stroke-width="1.704"
+                stroke-miterlimit="10"
+              ></path>
+              <path
+                d="M18.3099 4.81998L2.68994 4.81998L2.68994 17.6L18.3099 17.6L18.3099 4.81998Z"
+                stroke="black"
+                stroke-width="1.704"
+                stroke-miterlimit="10"
+                stroke-linecap="square"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        id="addAlertButton"
+        class="w-full h-11 text-base leading-7 text-white bg-indigo-500 rounded"
+      >
+        Add Alert
+      </button>
+    </form>
+
+    <!-- Active Alerts Section -->
+    <section class="flex flex-col gap-4">
+      <h2 class="text-base leading-7 text-black">Active Weather Alerts</h2>
+      <!-- This will show active alerts once they are added -->
+    </section>
+  </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdminHub Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white">
+  <header class="flex items-center px-6 py-0 h-14 bg-white border-b border-solid border-b-zinc-200">
+    <div class="flex items-center">
+      <svg width="36" height="37" viewBox="0 0 36 37" fill="none" xmlns="http://www.w3.org/2000/svg" class="mr-2.5">
+        <rect y="0.5" width="36" height="36" stroke="#BCC1CA"></rect>
+        <path d="M25.9757 3.33395L25.9748 3.33301H10.0245C5.37103 3.33301 1.6001 7.10222 1.6001 11.7536V17.9548C1.6001 22.6042 5.37103 26.3753 10.0245 26.3753H20.1161C20.4133 26.3753 20.7005 26.483 20.9245 26.6783L26.4362 31.4852C27.2319 32.1792 28.4746 31.614 28.4746 30.5582V26.9055C28.4746 26.3665 28.8297 25.8987 29.3242 25.6843C32.3107 24.3897 34.4001 21.4175 34.4001 17.9566V11.7555C34.4001 7.10632 30.6297 3.3354 25.9766 3.33489L25.9757 3.33395Z" fill="#5068E2"></path>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M7.66077 16.2364C8.11394 15.7422 8.88236 15.7085 9.37715 16.1611C10.9679 17.6163 13.5798 19.3002 16.6344 19.7789C19.6192 20.2467 23.1386 19.5862 26.7242 16.1771C27.2101 15.715 27.9791 15.7339 28.4417 16.2193C28.9043 16.7046 28.8854 17.4726 28.3994 17.9346C24.2701 21.8608 19.9936 22.7616 16.2578 22.1762C12.592 21.6017 9.55878 19.6179 7.73608 17.9506C7.24134 17.498 7.20764 16.7305 7.66077 16.2364Z" fill="#70A0E9"></path>
+      </svg>
+      <h1 class="mr-9 text-3xl text-black">AdminHub</h1>
+    </div>
+   
+    <div class="flex gap-4 items-center ml-auto">
+     
+      <div class="overflow-hidden w-9 h-9 rounded-full">
+        <button onclick="window.location.href = '/user';" aria-label="User profile">
+         <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/65d07217941e36a6b53e5d7185e11f183762cca9" alt="User avatar" class="object-cover size-full">
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+   
+
+    <section class="px-32 py-24 bg-white max-md:px-16 max-md:py-12">
+      <div class="relative mb-6">
+        <input type="text" placeholder="Search" class="pt-2.5 pr-4 pb-2 pl-11 w-full text-base rounded-sm border border-solid border-neutral-300">
+        <div class="absolute left-4 top-1/2 transform -translate-y-1/2">
+          <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.1428 17.6429L14.2856 14.7858" stroke="#171A1F" stroke-width="1.71429" stroke-miterlimit="10" stroke-linecap="square"></path>
+            <path d="M8.57122 14.7857C11.7271 14.7857 14.2855 12.2274 14.2855 9.07146C14.2855 5.91555 11.7271 3.35718 8.57122 3.35718C5.41531 3.35718 2.85693 5.91555 2.85693 9.07146C2.85693 12.2274 5.41531 14.7857 8.57122 14.7857Z" stroke="#171A1F" stroke-width="1.71429" stroke-miterlimit="10" stroke-linecap="square"></path>
+            <path d="M5.71436 9.07138C5.71436 8.31361 6.01537 7.58689 6.55119 7.05107C7.08701 6.51525 7.81374 6.21423 8.5715 6.21423" stroke="#171A1F" stroke-width="1.71429" stroke-miterlimit="10"></path>
+          </svg>
+        </div>
+      </div>
+
+      <div class="flex gap-3 mb-6 max-sm:flex-wrap">
+        <button class="px-6 py-2.5 text-base bg-white rounded border border-black border-solid cursor-pointer">
+          All Categories
+        </button>
+        <button class="px-6 py-2.5 text-base bg-white rounded border border-black border-solid cursor-pointer">
+          All Status
+        </button>
+        <button class="px-6 py-2.5 text-base bg-white rounded border border-black border-solid cursor-pointer">
+          Urgent
+        </button>
+        <button class="px-6 py-2.5 text-base bg-white rounded border border-black border-solid cursor-pointer">
+          Clear Filters
+        </button>
+      </div>
+
+      <div class="mb-6 w-full max-sm:overflow-x-auto">
+       
+        <iframe src="allcomplaints" width="100%" height="500px" style="border: none;"></iframe>
+
+      </div>
+      <div class="mb-6 w-full max-sm:overflow-x-auto">
+       
+        <iframe src="addalert.html" width="100%" height="500px" style="border: none;"></iframe>
+
+      </div>
+      <div class="mb-6 w-full max-sm:overflow-x-auto">
+       
+        <iframe src="alerts" width="100%" height="500px" style="border: none;"></iframe>
+
+      </div>
+    </section>
+  </main>
+
+</body>
+</html>
