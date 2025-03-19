@@ -103,16 +103,42 @@
               </header>
 
               <form class="flex flex-col gap-4 w-full">
-                <div class="flex relative items-center w-full bg-gray-100 rounded-sm h-[43px]">
-                  <input
-                  id="email"
-                    type="email"
-                    class="pr-4 pl-11 text-base bg-transparent size-full text-neutral-300"
-                    aria-label="Email address"
-                    name="user-email-unique" autocomplete="off" placeholder="Enter your email" readonly 
-                    onfocus="this.removeAttribute('readonly');"
-                  />
-                </div>
+                <div
+                class="flex relative items-center w-full bg-gray-100 rounded-sm h-[43px]"
+              >
+                <svg
+                  width="20"
+                  height="21"
+                  viewBox="0 0 20 21"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="absolute left-[16px] top-[12px] w-[20px] h-[20px]"
+                >
+                  <path
+                    d="M2.58154 4.46997L10.0001 11.2143L17.418 4.47068"
+                    stroke="#171A1F"
+                    stroke-width="1.71429"
+                    stroke-miterlimit="10"
+                  ></path>
+                  <path
+                    d="M16.4288 4.07141L3.57164 4.07141C2.78266 4.07141 2.14307 4.711 2.14307 5.49998L2.14307 15.5C2.14307 16.289 2.78266 16.9286 3.57164 16.9286L16.4288 16.9286C17.2178 16.9286 17.8574 16.289 17.8574 15.5L17.8574 5.49998C17.8574 4.711 17.2178 4.07141 16.4288 4.07141Z"
+                    stroke="#171A1F"
+                    stroke-width="1.71429"
+                    stroke-miterlimit="10"
+                    stroke-linecap="square"
+                  ></path>
+                </svg>
+                <input
+                 id="email"
+                  type="email"
+                  placeholder="Your email address"
+                  class="pr-4 pl-11 text-base bg-transparent size-full text-neutral-300"
+                  aria-label="Email address"
+                  name="user-email-unique" autocomplete="off" placeholder="Enter your email" readonly 
+                  onfocus="this.removeAttribute('readonly');"
+                />
+              </div>
+
 
                 <div class="flex relative items-center w-full bg-gray-100 rounded-sm h-[43px]">
                   <input id="password" type="password" placeholder="Enter your password"
