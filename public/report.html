@@ -71,7 +71,7 @@
               <a href="weather.html">Weather</a>
             </li>
             <li class="px-6 text-sm text-gray-600 h-[52px] flex items-center">
-              <a href="awareness.html" >Awareness</a>
+              <a href="awareness.html">Awareness</a>
             </li>
           </ul>
           <div class="flex gap-4 items-center ml-6">
@@ -111,10 +111,10 @@
               </svg>
               <span class="text-sm text-indigo-500">Report Complaint</span>
             </button>
-            <button onclick="window.location.href = '/user';" aria-label="User   profile">
+            <button onclick="window.location.href = '/user';" aria-label="User  profile">
               <img
                 src="profile.jpg"
-                alt="User   profile"
+                alt="User  profile"
                 class="w-[36px] h-[36px] rounded-[18px]"
               />
             </button>
@@ -140,6 +140,7 @@
                   id="new_complaint"
                   placeholder="1234 Example Street, San Jose, CA 95122"
                   class="w-full text-base text-neutral-300"
+                  required
                 />
               </div>
             </div>
@@ -154,6 +155,7 @@
                 accept="image/*"
                 class="border border-neutral-300 rounded p-2"
                 capture="camera"
+                required
               />
               <div id="details" class="mt-2"></div>
             </div>
@@ -165,6 +167,7 @@
               Submit Report
             </button>
           </form>
+          <div id="submissionMessage" class="mt-4 text-green-500 hidden"></div>
         </section>
 
         <!-- Additional Information Section -->
@@ -413,11 +416,22 @@
       };
 
       function validateForm() {
+        const locationInput = document.getElementById('new_complaint').value.trim();
         const imageUpload = document.getElementById('imageUpload').files.length;
+
+        if (!locationInput) {
+          alert('Please provide a location.');
+          return false; // Prevent form submission
+        }
+
         if (imageUpload === 0) {
           alert('Please upload an image from the camera.');
           return false; // Prevent form submission
         }
+
+        // If all validations pass, show success message
+        document.getElementById('submissionMessage').innerText = 'Submitted successfully!';
+        document.getElementById('submissionMessage').classList.remove('hidden');
         return true; // Allow form submission
       }
     </script>
