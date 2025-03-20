@@ -51,9 +51,6 @@ export default function ComplaintBox() {
           {dataNodes.map((item, index) => (
             <div key={index} className="complaint-field">
               <strong>{item.field}:</strong> <span>{item.value}</span>
-              {item.field === "imageUrl" && item.value && (
-                <img src={item.value} alt="Complaint Image" className="complaint-image" />
-              )}
             </div>
           ))}
         </div>
@@ -86,12 +83,6 @@ export default function ComplaintBox() {
         .no-complaints {
           color: #888;
           font-size: 16px;
-        }
-        .complaint-image {
-          max-width: 100%;
-          height: auto;
-          margin-top: 10px;
-          border-radius: 5px;
         }
       `}</style>
     </div>
