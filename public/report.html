@@ -3,12 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SMART DRAINAGE SYSTEM</title>
+    <title>SMART DRINAGE SYSTEM</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Firebase SDKs -->
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-storage.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
   </head>
   <body class="font-sans">
     <div class="flex flex-col bg-white min-h-screen">
@@ -62,7 +58,7 @@
               fill="#70A0E9"
             ></path>
           </svg>
-          <h1 class="text-3xl text-black">SMART DRAINAGE SYSTEM</h1>
+          <h1 class="text-3xl text-black">Drainage Health Hub</h1>
         </div>
 
         <!-- Desktop Navigation aligned to the right -->
@@ -75,8 +71,9 @@
               <a href="weather.html">Weather</a>
             </li>
             <li class="px-6 text-sm text-gray-600 h-[52px] flex items-center">
-              <a href="awareness.html">Awareness</a>
+              <a href="awareness.html" class="text-sm font-bold text-indigo-500">Awareness</a>
             </li>
+            
           </ul>
           <div class="flex gap-4 items-center ml-6">
             <button 
@@ -111,14 +108,14 @@
                   stroke-width="1.368"
                   stroke-miterlimit="10"
                   stroke-linecap="square"
-                ></path>
+                ></ path>
               </svg>
               <span class="text-sm text-indigo-500">Report Complaint</span>
             </button>
-            <button onclick="window.location.href = '/user';" aria-label="User   profile">
+            <button onclick="window.location.href = '/user';" aria-label="User  profile">
               <img
                 src="profile.jpg"
-                alt="User   profile"
+                alt="User  profile"
                 class="w-[36px] h-[36px] rounded-[18px]"
               />
             </button>
@@ -131,37 +128,20 @@
         <section class="flex flex-col items-center px-6 py-24 max-sm:px-4 max-sm:py-12">
           <h2 class="mb-6 text-3xl text-center text-zinc-900">Report Drainage Issues</h2>
           <p class="mb-6 text-base text-center text-gray-600 max-w-[800px]">
-            To assist us in understanding and addressing your issue, please provide a complaint with the exact location.
+            To assist us in understanding and addressing your issue, please provide a clear description of the drainage problem, including details such as the exact location or address of the issue, or if applicable, the geographic coordinates (latitude and longitude).
           </p>
-          <form class="flex flex-col gap-5 w-full max-w-[400px]" onsubmit="return validateForm()">
+          <form class="flex flex-col gap-5 w-full max-w-[400px]">
             <div class="flex flex-col gap-2">
               <label for="location" class="text-base text-black">
-                Complaint with Exact Location:
-              </label>
+                Provide discreption about you complaint and adress of problem occurenece             </label>
               <div class="flex items-center px-4 rounded-sm border border-neutral-300 h-[43px]">
                 <input
                   type="text"
                   id="new_complaint"
-                  placeholder="e.g., Blocked drain at 1234 Example Street"
+                  placeholder="1234 Example Street, San Jose, CA 95122"
                   class="w-full text-base text-neutral-300"
-                  required
                 />
               </div>
-            </div>
-            <div class="flex flex-col gap-2">
-              <label class="text-base text-black">
-                Please include any relevant images to support your report:
-              </label>
-              <p class="text-base text-stone-500">Upload Your Images</p>
-              <input
-                type="file"
-                id="imageUpload"
-                accept="image/*"
-                class="border border-neutral-300 rounded p-2"
-                capture="camera"
-                required
-              />
-              <div id="details" class="mt-2"></div>
             </div>
             <button
               id="submit_complaint"
@@ -171,7 +151,6 @@
               Submit Report
             </button>
           </form>
-          <div id="submissionMessage" class="mt-4 text-green-500 hidden"></div>
         </section>
 
         <!-- Additional Information Section -->
@@ -216,7 +195,7 @@
               <svg
                 width="32"
                 height="33"
-                viewBox="0 0 32 33"
+                view viewBox="0 0 32 33"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 class="w-[32px] h-[32px] flex-shrink-0"
@@ -301,8 +280,7 @@
                   d="M4 16.5L20.8 16.5"
                   stroke="#4CAF50"
                   stroke-width="1.92"
-                  stroke-miterlimit="10"
-                ></path>
+                  stroke-miterlimit="10 ></path>
                 <path
                   d="M16.8 12.5L20.8 16.5L16.8 20.5"
                   stroke="#4CAF50"
@@ -392,87 +370,6 @@
         </section>
       </main>
     </div>
-    <script>
-      // Your web app's Firebase configuration
-      const firebaseConfig = {
-        apiKey: "YOUR_API_KEY",
-        authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
-        projectId: "YOUR_PROJECT_ID",
-        storageBucket: "YOUR_PROJECT_ID.appspot.com",
-        messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-        appId: "YOUR_APP_ID"
-      };
-
-      // Initialize Firebase
-      const app = firebase.initializeApp(firebaseConfig);
-      const storage = firebase.storage();
-      const db = firebase.firestore(); // or firebase.database() for Realtime Database
-
-      var reqcount = 0;
-
-      navigator.geolocation.watchPosition(successCallback, errorCallback, options);
-
-      function successCallback(position) {
-        const { accuracy, latitude, longitude, altitude, heading, speed } = position.coords;
-        reqcount++;
-        const details = document.getElementById('details');
-        details.innerHTML = "Accuracy: " + accuracy + "<br>";
-        details.innerHTML += "Latitude: " + latitude + " | Longitude: " + longitude + "<br>";
-        details.innerHTML += "Altitude: " + altitude + "<br>";
-        details.innerHTML += "Heading: " + heading + "<br>";
-        details.innerHTML += "Speed: " + speed + "<br>";
-        details.innerHTML += "reqcount: " + reqcount;
-      }
-
-      function errorCallback(error) {
-        console.error("Error occurred while retrieving location: ", error);
-      }
-
-      const options = {
-        enableHighAccuracy: true,
-        timeout: 5000,
-        maximumAge: 0
-      };
-
-      async function validateForm() {
-        const locationInput = document.getElementById('new_complaint').value.trim();
-        const imageFile = document.getElementById('imageUpload').files[0];
-
-        if (!locationInput) {
-          alert('Please provide a complaint with the exact location.');
-          return false; // Prevent form submission
-        }
-
-        if (!imageFile) {
-          alert('Please upload an image from the camera.');
-          return false; // Prevent form submission
-        }
-
-        // Upload image to Firebase Storage
-        const storageRef = storage.ref();
-        const imageRef = storageRef.child(`images/${imageFile.name}`);
-        
-        try {
-          await imageRef.put(imageFile);
-          const imageUrl = await imageRef.getDownloadURL();
-
-          // Store the complaint and image URL in Firestore
-          await db.collection('complaints').add({
-            location: locationInput,
-            imageUrl: imageUrl,
-            timestamp: firebase.firestore.FieldValue.serverTimestamp()
-          });
-
-          // Show success message
-          document.getElementById('submissionMessage').innerText = 'Submitted successfully!';
-          document.getElementById('submissionMessage').classList.remove('hidden');
-        } catch (error) {
-          console.error("Error uploading image: ", error);
-          alert('Error uploading image. Please try again.');
-        }
-
-        return false; // Prevent default form submission
-      }
-    </script>
+    <script src="/submit_complaint.js"></script>
   </body>
 </html>
