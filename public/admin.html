@@ -18,15 +18,66 @@
       <h1 class="mr-9 text-3xl text-black">AdminHub</h1>
     </div>
    
-    <div class="flex gap-4 items-center ml-auto">
-     
-      <div class="overflow-hidden w-9 h-9 rounded-full">
-        <button onclick="window.location.href = '/user';" aria-label="User profile">
-         <img src="https://cdn.builder.io/api/v1/image/assets/TEMP/65d07217941e36a6b53e5d7185e11f183762cca9" alt="User avatar" class="object-cover size-full">
-        </button>
-      </div>
-    </div>
-  </header>
+    <nav class="flex items-center ml-auto max-sm:hidden">
+          <ul class="flex items-center">
+            <li class="px-6 text-sm text-gray-600 h-[52px] flex items-center">
+              <a href="/dashboard.html">Dashboard</a>
+            </li>
+            <li class="px-6 text-sm text-gray-600 h-[52px] flex items-center">
+              <a href="weather.html">Weather</a>
+            </li>
+            <li class="px-6 text-sm text-gray-600 h-[52px] flex items-center">
+              <a href="awareness.html" class="text-sm font-bold text-indigo-500">Awareness</a>
+            </li>
+            
+          </ul>
+          <div class="flex gap-4 items-center ml-6">
+            <button 
+              onclick="window.location.href = '/report.html';"
+              class="flex gap-1.5 items-center px-3.5 py-2 rounded border border-indigo-500"
+            >
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 17 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-[16px] h-[16px]"
+              >
+                <path
+                  d="M8.5 14.77L8.5 2.22998"
+                  stroke="#5068E2"
+                  stroke-width="1.368"
+                  stroke-miterlimit="10"
+                  stroke-linecap="square"
+                ></path>
+                <path
+                  d="M6.21004 6.21997L6.21004 11.92L2.79004 11.92L6.21004 6.21997Z"
+                  stroke="#5068E2"
+                  stroke-width="1.368"
+                  stroke-miterlimit="10"
+                  stroke-linecap="square"
+                ></path>
+                <path
+                  d="M10.79 6.21997L10.79 11.92L14.21 11.92L10.79 6.21997Z"
+                  stroke="#5068E2"
+                  stroke-width="1.368"
+                  stroke-miterlimit="10"
+                  stroke-linecap="square"
+                ></ path>
+              </svg>
+              <span class="text-sm text-indigo-500">Report Complaint</span>
+            </button>
+            <button onclick="window.location.href = '/user';" aria-label="User  profile">
+              <img
+                src="profile.jpg"
+                alt="User  profile"
+                class="w-[36px] h-[36px] rounded-[18px]"
+              />
+            </button>
+          </div>
+        </nav>
+      </header>
 
   <main>
    
