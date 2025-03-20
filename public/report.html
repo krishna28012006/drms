@@ -3,16 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SMART DRAINAGE SYSTEM</title>
+    <title>SMART DRINAGE SYSTEM</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body class="font-sans">
     <div class="flex flex-col bg-white min-h-screen">
       <!-- Header/Navigation -->
       <header class="flex justify-between items-center px-6 w-full h-14 bg-white shadow-sm">
+        <!-- Logo and Title -->
         <div class="flex gap-2.5 items-center">
-          <h1 class="text-3xl text-black">SMART DRAINAGE SYSTEM</h1>
+          <svg
+            width="36"
+            height="37"
+            viewBox="0 0 36 37"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-[36px] h-[36px]"
+          >
+            <rect y="0.5" width="36" height="36" stroke="#BCC1CA"></rect>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M25.0553 8.69189V20.212L33.0664 14.2334L25.0553 8.69189Z"
+              fill="#70A0E9"
+            ></path>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M34.3676 33.173V16.9893L25.0493 23.9421V33.173H34.3676Z"
+              fill="#5068E2"
+            ></path>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M10.9506 33.1666V24.395L1.63232 33.1666H10.9506Z"
+              fill="#5068E2"
+            ></path>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M17.4943 14.1247L18.4912 15.1323L22.6573 19.3366V6.96081L17.9982 3.62329L13.3391 6.96081V17.8956L16.4464 15.0768L17.4943 14.1247Z"
+              fill="#92B7EE"
+            ></path>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M22.5999 23.7343L17.3273 18.4114L13.2816 22.0823V33.2468H22.5999V23.7343Z"
+              fill="#788BE9"
+            ></path>
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M10.9506 8.67798L1.63232 15.353V28.54L10.9506 20.0795V8.67798Z"
+              fill="#70A0E9"
+            ></path>
+          </svg>
+          <h1 class="text-3xl text-black">Drainage Health Hub</h1>
         </div>
+
+        <!-- Desktop Navigation aligned to the right -->
         <nav class="flex items-center ml-auto max-sm:hidden">
           <ul class="flex items-center">
             <li class="px-6 text-sm text-gray-600 h-[52px] flex items-center">
@@ -22,34 +71,85 @@
               <a href="weather.html">Weather</a>
             </li>
             <li class="px-6 text-sm text-gray-600 h-[52px] flex items-center">
-              <a href="awareness.html">Awareness</a>
+              <a href="awareness.html" class="text-sm font-bold text-indigo-500">Awareness</a>
             </li>
+            
           </ul>
+          <div class="flex gap-4 items-center ml-6">
+            <button 
+              onclick="window.location.href = '/report.html';"
+              class="flex gap-1.5 items-center px-3.5 py-2 rounded border border-indigo-500"
+            >
+              <svg
+                width="17"
+                height="17"
+                viewBox="0 0 17 17"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-[16px] h-[16px]"
+              >
+                <path
+                  d="M8.5 14.77L8.5 2.22998"
+                  stroke="#5068E2"
+                  stroke-width="1.368"
+                  stroke-miterlimit="10"
+                  stroke-linecap="square"
+                ></path>
+                <path
+                  d="M6.21004 6.21997L6.21004 11.92L2.79004 11.92L6.21004 6.21997Z"
+                  stroke="#5068E2"
+                  stroke-width="1.368"
+                  stroke-miterlimit="10"
+                  stroke-linecap="square"
+                ></path>
+                <path
+                  d="M10.79 6.21997L10.79 11.92L14.21 11.92L10.79 6.21997Z"
+                  stroke="#5068E2"
+                  stroke-width="1.368"
+                  stroke-miterlimit="10"
+                  stroke-linecap="square"
+                ></ path>
+              </svg>
+              <span class="text-sm text-indigo-500">Report Complaint</span>
+            </button>
+            <button onclick="window.location.href = '/user';" aria-label="User  profile">
+              <img
+                src="profile.jpg"
+                alt="User  profile"
+                class="w-[36px] h-[36px] rounded-[18px]"
+              />
+            </button>
+          </div>
         </nav>
       </header>
 
       <main>
+        <!-- Report Drainage Issues Section -->
         <section class="flex flex-col items-center px-6 py-24 max-sm:px-4 max-sm:py-12">
           <h2 class="mb-6 text-3xl text-center text-zinc-900">Report Drainage Issues</h2>
           <p class="mb-6 text-base text-center text-gray-600 max-w-[800px]">
-            To assist us in understanding and addressing your issue, please provide a clear description of the drainage problem, including details such as the exact location or address of the issue.
+            To assist us in understanding and addressing your issue, please provide a clear description of the drainage problem, including details such as the exact location or address of the issue, or if applicable, the geographic coordinates (latitude and longitude).
           </p>
-          <form id="complaintForm" class="flex flex-col gap-5 w-full max-w-[400px]">
+          <form class="flex flex-col gap-5 w-full max-w-[400px]">
             <div class="flex flex-col gap-2">
               <label for="location" class="text-base text-black">
-                Provide description about your complaint and address of problem occurrence:
+                Location (Please provide address or latitude/longitude):
               </label>
               <div class="flex items-center px-4 rounded-sm border border-neutral-300 h-[43px]">
                 <input
                   type="text"
                   id="new_complaint"
-                  placeholder="e.g., Blocked drain at 1234 Example Street"
+                  placeholder="1234 Example Street, San Jose, CA 95122"
                   class="w-full text-base text-neutral-300"
-                  required
                 />
               </div>
             </div>
-           
+            <div class="flex flex-col gap-2">
+              <label class="text-base text-black">
+                Please include any relevant images to support your report:
+              </label>
+              <p class="text-base text-stone-500">Upload Your Images</p>
+            </div>
             <button
               id="submit_complaint"
               type="submit"
@@ -58,38 +158,225 @@
               Submit Report
             </button>
           </form>
-          <div id="submissionMessage" class="mt-4 text-green-500 hidden"></div>
+        </section>
+
+        <!-- Additional Information Section -->
+        <section class="flex flex-col items-center px-6 py-24 max-sm:px-4 max-sm:py-12">
+          <h2 class="mb-6 text-3xl text-center text-zinc-900">Additional Information</h2>
+          <div class="flex flex-col gap-4 max-w-[822px]">
+            <div class="flex gap-4 items-center">
+              <svg
+                width="32"
+                height="33"
+                viewBox="0 0 32 33"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-[32px] h-[32px] flex-shrink-0"
+              >
+                <path
+                  d="M11.6 14.1C12.64 10.82 15.68 8.5 19.2 8.5C23.6 8.5 27.2 12.1 27.2 16.5C27.2 20.9 23.6 24.5 19.2 24.5C15.6 24.5 12.56 22.18 11.6 18.9"
+                  stroke="#4CAF50"
+                  stroke-width="1.92"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                ></path>
+                <path
+                  d="M4 16.5L20.8 16.5"
+                  stroke="#4CAF50"
+                  stroke-width="1.92"
+                  stroke-miterlimit="10"
+                ></path>
+                <path
+                  d="M16.8 12.5L20.8 16.5L16.8 20.5"
+                  stroke="#4CAF50"
+                  stroke-width="1.92"
+                  stroke-miterlimit="10"
+                  stroke-linecap="square"
+                ></path>
+              </svg>
+              <p class="text-base text-black">
+                When reporting a drainage issue, please ensure you include a clear description of the problem, such as
+              </p>
+            </div>
+            <div class="flex gap-4 items-center">
+              <svg
+                width="32"
+                height="33"
+                view viewBox="0 0 32 33"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-[32px] h-[32px] flex-shrink-0"
+              >
+                <path
+                  d="M11.6 14.1C12.64 10.82 15.68 8.5 19.2 8.5C23.6 8.5 27.2 12.1 27.2 16.5C27.2 20.9 23.6 24.5 19.2 24.5C15.6 24.5 12.56 22.18 11.6 18.9"
+                  stroke="#4CAF50"
+                  stroke-width="1.92"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                ></path>
+                <path
+                  d="M4 16.5L20.8 16.5"
+                  stroke="#4CAF50"
+                  stroke-width="1.92"
+                  stroke-miterlimit="10"
+                ></path>
+                <path
+                  d="M16.8 12.5L20.8 16.5L16.8 20.5"
+                  stroke="#4CAF50"
+                  stroke-width="1.92"
+                  stroke-miterlimit="10"
+                  stroke-linecap="square"
+                ></path>
+              </svg>
+              <p class="text-base text-black">
+                Examples of effective issue reports include:
+              </p>
+            </div>
+            <div class="flex gap-4 items-center">
+              <svg
+                width="32"
+                height="33"
+                viewBox="0 0 32 33"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-[32px] h-[32px] flex-shrink-0"
+              >
+                <path
+                  d="M11.6 14.1C12.64 10.82 15.68 8.5 19.2 8.5C23.6 8.5 27.2 12.1 27.2 16.5C27.2 20.9 23.6 24.5 19.2 24.5C15.6 24.5 12.56 22.18 11.6 18.9"
+                  stroke="#4CAF50"
+                  stroke-width="1.92"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                ></path>
+                <path
+                  d="M4 16.5L20.8 16.5"
+                  stroke="#4CAF50"
+                  stroke-width="1.92"
+                  stroke-miterlimit="10"
+                ></path>
+                <path
+                  d="M16.8 12.5L20.8 16.5L16.8 20.5"
+                  stroke="#4CAF50"
+                  stroke-width="1.92"
+                  stroke-miterlimit="10"
+                  stroke-linecap="square"
+                ></path>
+              </svg>
+              <p class="text-base text-black">
+                Unclogged drains: Reporting a blocked drain with a photo showing the obstruction (e.g., leaves, dirt) is ideal.
+              </p>
+            </div>
+            <div class="rounded bg-zinc-300 h-[200px] w-[300px]"></div>
+            <div class="flex gap-4 items-center">
+              <svg
+                width="32"
+                height="33"
+                viewBox="0 0 32 33"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-[32px] h-[32px] flex-shrink-0"
+              >
+                <path
+                  d="M11.6 14.1C12.64 10.82 15.68 8.5 19.2 8.5C23.6 8.5 27.2 12.1 27.2 16.5C27.2 20.9 23.6 24.5 19.2 24.5C15.6 24.5 12.56 22.18 11.6 18.9"
+                  stroke="#4CAF50"
+                  stroke-width="1.92"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                ></path>
+                <path
+                  d="M4 16.5L20.8 16.5"
+                  stroke="#4CAF50"
+                  stroke-width="1.92"
+                  stroke-miterlimit="10 ></path>
+                <path
+                  d="M16.8 12.5L20.8 16.5L16.8 20.5"
+                  stroke="#4CAF50"
+                  stroke-width="1.92"
+                  stroke-miterlimit="10"
+                  stroke-linecap="square"
+                ></path>
+              </svg>
+              <p class="text-base text-black">
+                Overflowing municipal drains: Capture the overflow situation and the drainage infrastructure.
+              </p>
+            </div>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/2e626b952cd691eb57df89bb1c341333a1aa633f"
+              alt="Drainage example"
+              class="w-[300px] h-[200px] rounded-[3px]"
+            />
+            <div class="flex gap-4 items-center">
+              <svg
+                width="32"
+                height="33"
+                viewBox="0 0 32 33"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-[32px] h-[32px] flex-shrink-0"
+              >
+                <path
+                  d="M11.6 14.1C12.64 10.82 15.68 8.5 19.2 8.5C23.6 8.5 27.2 12.1 27.2 16.5C27.2 20.9 23.6 24.5 19.2 24.5C15.6 24.5 12.56 22.18 11.6 18.9"
+                  stroke="#4CAF50"
+                  stroke-width="1.92"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                ></path>
+                <path
+                  d="M4 16.5L20.8 16.5"
+                  stroke="#4CAF50"
+                  stroke-width="1.92"
+                  stroke-miterlimit="10"
+                ></path>
+                <path
+                  d="M16.8 12.5L20.8 16.5L16.8 20.5"
+                  stroke="#4CAF50"
+                  stroke-width="1.92"
+                  stroke-miterlimit="10"
+                  stroke-linecap="square"
+                ></path>
+              </svg>
+              <p class="text-base text-black">
+                Please avoid sending: Obstruction not affecting drainage; Issues unrelated to drainage.
+              </p>
+            </div>
+            <div class="flex gap-4 items-center">
+              <svg
+                width="32"
+                height="33"
+                viewBox="0 0 32 33"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-[32px] h-[32px] flex-shrink-0"
+              >
+                <path
+                  d="M11.6 14.1C12.64 10.82 15.68 8.5 19.2 8.5C23.6 8.5 27.2 12.1 27.2 16.5C27.2 20.9 23.6 24.5 19.2 24.5C15.6 24.5 12.56 22.18 11.6 18.9"
+                  stroke="#4CAF50"
+                  stroke-width="1.92"
+                  stroke-miterlimit="10"
+                  stroke-linecap="round"
+                ></path>
+                <path
+                  d="M4 16.5L20.8 16.5"
+                  stroke="#4CAF50"
+                  stroke-width="1.92"
+                  stroke-miterlimit="10"
+                ></path>
+                <path
+                  d="M16.8 12.5L20.8 16.5L16.8 20.5"
+                  stroke="#4CAF50"
+                  stroke-width="1.92"
+                  stroke-miterlimit="10"
+                  stroke-linecap="square"
+                ></path>
+              </svg>
+              <p class="text-base text-black">
+                Prefer clear, unobstructed views of: Blockages, Overflows, Infrastructure details.
+              </p>
+            </div>
+          </div>
         </section>
       </main>
     </div>
-    <script>
-      document.getElementById('complaintForm').addEventListener('submit', async function(event) {
-        event.preventDefault(); // Prevent default form submission
-
-        const locationInput = document.getElementById('new_complaint').value.trim();
-        const imageFile = document.getElementById('imageUpload').files[0];
-
-        if (!locationInput) {
-          alert('Please provide a complaint with the exact location.');
-          return; // Prevent form submission
-        }
-
-        if (!imageFile) {
-          alert('Please upload an image from the camera.');
-          return; // Prevent form submission
-        }
-
-        // Here you would add your Firebase upload logic
-        // For example:
-        // const storageRef = storage.ref();
-        // const imageRef = storageRef.child(`images/${imageFile.name}`);
-        // await imageRef.put(imageFile);
-        // const imageUrl = await imageRef.getDownloadURL();
-
-        // Simulate successful submission
-        document.getElementById('submissionMessage').innerText = 'Submitted successfully!';
-        document.getElementById('submissionMessage').classList.remove('hidden');
-      });
-    </script>
+    <script src="/submit_complaint.js"></script>
   </body>
 </html>
