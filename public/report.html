@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SMART DRAINAGE SYSTEM</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-storage.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js"></script>
   </head>
   <body class="font-sans">
     <div class="flex flex-col bg-white min-h-screen">
@@ -111,10 +115,10 @@
               </svg>
               <span class="text-sm text-indigo-500">Report Complaint</span>
             </button>
-            <button onclick="window.location.href = '/user';" aria-label="User  profile">
+            <button onclick="window.location.href = '/user';" aria-label="User   profile">
               <img
                 src="profile.jpg"
-                alt="User  profile"
+                alt="User   profile"
                 class="w-[36px] h-[36px] rounded-[18px]"
               />
             </button>
@@ -127,18 +131,18 @@
         <section class="flex flex-col items-center px-6 py-24 max-sm:px-4 max-sm:py-12">
           <h2 class="mb-6 text-3xl text-center text-zinc-900">Report Drainage Issues</h2>
           <p class="mb-6 text-base text-center text-gray-600 max-w-[800px]">
-            To assist us in understanding and addressing your issue, please provide a clear description of the drainage problem, including details such as the exact location or address of the issue, or if applicable, the geographic coordinates (latitude and longitude).
+            To assist us in understanding and addressing your issue, please provide a complaint with the exact location.
           </p>
           <form class="flex flex-col gap-5 w-full max-w-[400px]" onsubmit="return validateForm()">
             <div class="flex flex-col gap-2">
               <label for="location" class="text-base text-black">
-                Location (Please provide address or latitude/longitude):
+                Complaint with Exact Location:
               </label>
               <div class="flex items-center px-4 rounded-sm border border-neutral-300 h-[43px]">
                 <input
                   type="text"
                   id="new_complaint"
-                  placeholder="1234 Example Street, San Jose, CA 95122"
+                  placeholder="e.g., Blocked drain at 1234 Example Street"
                   class="w-full text-base text-neutral-300"
                   required
                 />
@@ -389,6 +393,21 @@
       </main>
     </div>
     <script>
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "YOUR_API_KEY",
+        authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+        projectId: "YOUR_PROJECT_ID",
+        storageBucket: "YOUR_PROJECT_ID.appspot.com",
+        messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+        appId: "YOUR_APP_ID"
+      };
+
+      // Initialize Firebase
+      const app = firebase.initializeApp(firebaseConfig);
+      const storage = firebase.storage();
+      const db = firebase.firestore(); // or firebase.database() for Realtime Database
+
       var reqcount = 0;
 
       navigator.geolocation.watchPosition(successCallback, errorCallback, options);
@@ -415,24 +434,44 @@
         maximumAge: 0
       };
 
-      function validateForm() {
+      async function validateForm() {
         const locationInput = document.getElementById('new_complaint').value.trim();
-        const imageUpload = document.getElementById('imageUpload').files.length;
+        const imageFile = document.getElementById('imageUpload').files[0];
 
         if (!locationInput) {
-          alert('Please provide a location.');
+          alert('Please provide a complaint with the exact location.');
           return false; // Prevent form submission
         }
 
-        if (imageUpload === 0) {
+        if (!imageFile) {
           alert('Please upload an image from the camera.');
           return false; // Prevent form submission
         }
 
-        // If all validations pass, show success message
-        document.getElementById('submissionMessage').innerText = 'Submitted successfully!';
-        document.getElementById('submissionMessage').classList.remove('hidden');
-        return true; // Allow form submission
+        // Upload image to Firebase Storage
+        const storageRef = storage.ref();
+        const imageRef = storageRef.child(`images/${imageFile.name}`);
+        
+        try {
+          await imageRef.put(imageFile);
+          const imageUrl = await imageRef.getDownloadURL();
+
+          // Store the complaint and image URL in Firestore
+          await db.collection('complaints').add({
+            location: locationInput,
+            imageUrl: imageUrl,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+          });
+
+          // Show success message
+          document.getElementById('submissionMessage').innerText = 'Submitted successfully!';
+          document.getElementById('submissionMessage').classList.remove('hidden');
+        } catch (error) {
+          console.error("Error uploading image: ", error);
+          alert('Error uploading image. Please try again.');
+        }
+
+        return false; // Prevent default form submission
       }
     </script>
   </body>
