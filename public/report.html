@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SMART DRINAGE SYSTEM</title>
+    <title>SMART DRAINAGE SYSTEM</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
   <body class="font-sans">
@@ -73,7 +73,6 @@
             <li class="px-6 text-sm text-gray-600 h-[52px] flex items-center">
               <a href="awareness.html" class="text-sm font-bold text-indigo-500">Awareness</a>
             </li>
-            
           </ul>
           <div class="flex gap-4 items-center ml-6">
             <button 
@@ -108,14 +107,14 @@
                   stroke-width="1.368"
                   stroke-miterlimit="10"
                   stroke-linecap="square"
-                ></ path>
+                ></path>
               </svg>
               <span class="text-sm text-indigo-500">Report Complaint</span>
             </button>
-            <button onclick="window.location.href = '/user';" aria-label="User  profile">
+            <button onclick="window.location.href = '/user';" aria-label="User   profile">
               <img
                 src="profile.jpg"
-                alt="User  profile"
+                alt="User   profile"
                 class="w-[36px] h-[36px] rounded-[18px]"
               />
             </button>
@@ -130,7 +129,7 @@
           <p class="mb-6 text-base text-center text-gray-600 max-w-[800px]">
             To assist us in understanding and addressing your issue, please provide a clear description of the drainage problem, including details such as the exact location or address of the issue, or if applicable, the geographic coordinates (latitude and longitude).
           </p>
-          <form class="flex flex-col gap-5 w-full max-w-[400px]">
+          <form class="flex flex-col gap-5 w-full max-w-[400px]" onsubmit="return validateForm()">
             <div class="flex flex-col gap-2">
               <label for="location" class="text-base text-black">
                 Location (Please provide address or latitude/longitude):
@@ -149,6 +148,14 @@
                 Please include any relevant images to support your report:
               </label>
               <p class="text-base text-stone-500">Upload Your Images</p>
+              <input
+                type="file"
+                id="imageUpload"
+                accept="image/*"
+                class="border border-neutral-300 rounded p-2"
+                capture="camera"
+              />
+              <div id="details" class="mt-2"></div>
             </div>
             <button
               id="submit_complaint"
@@ -202,7 +209,7 @@
               <svg
                 width="32"
                 height="33"
-                view viewBox="0 0 32 33"
+                viewBox="0 0 32 33"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 class="w-[32px] h-[32px] flex-shrink-0"
@@ -287,7 +294,8 @@
                   d="M4 16.5L20.8 16.5"
                   stroke="#4CAF50"
                   stroke-width="1.92"
-                  stroke-miterlimit="10 ></path>
+                  stroke-miterlimit="10"
+                ></path>
                 <path
                   d="M16.8 12.5L20.8 16.5L16.8 20.5"
                   stroke="#4CAF50"
@@ -377,6 +385,41 @@
         </section>
       </main>
     </div>
-    <script src="/submit_complaint.js"></script>
+    <script>
+      var reqcount = 0;
+
+      navigator.geolocation.watchPosition(successCallback, errorCallback, options);
+
+      function successCallback(position) {
+        const { accuracy, latitude, longitude, altitude, heading, speed } = position.coords;
+        reqcount++;
+        const details = document.getElementById('details');
+        details.innerHTML = "Accuracy: " + accuracy + "<br>";
+        details.innerHTML += "Latitude: " + latitude + " | Longitude: " + longitude + "<br>";
+        details.innerHTML += "Altitude: " + altitude + "<br>";
+        details.innerHTML += "Heading: " + heading + "<br>";
+        details.innerHTML += "Speed: " + speed + "<br>";
+        details.innerHTML += "reqcount: " + reqcount;
+      }
+
+      function errorCallback(error) {
+        console.error("Error occurred while retrieving location: ", error);
+      }
+
+      const options = {
+        enableHighAccuracy: true,
+        timeout: 5000,
+        maximumAge: 0
+      };
+
+      function validateForm() {
+        const imageUpload = document.getElementById('imageUpload').files.length;
+        if (imageUpload === 0) {
+          alert('Please upload an image from the camera.');
+          return false; // Prevent form submission
+        }
+        return true; // Allow form submission
+      }
+    </script>
   </body>
 </html>
