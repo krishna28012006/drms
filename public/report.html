@@ -33,6 +33,12 @@
                
             try {
                       await setDoc(userDocRef, { complaint });
+                } catch (error) {
+                console.error("Error:", error);
+                alert("Something went wrong. Please try again.");
+            }
+        }
+
    
 
        
