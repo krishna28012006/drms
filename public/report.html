@@ -47,16 +47,13 @@
 
         
 
-        async function addComplaint(complaint, address) {
+        async function addComplaint(complaint, address, file) {
             const userEmail = localStorage.getItem("userEmail");
-            if (!userEmail) {
-                alert("User  not logged in.");
-                return;
-            }
-
+          
+                url = upload(file);
             const userDocRef = doc(db, "complaints", userEmail.trim().toLowerCase());
             try {
-                await setDoc(userDocRef, { complaint, address });
+                await setDoc(userDocRef, { complaint, address, url });
                 alert("Complaint submitted successfully!");
             } catch (error) {
                 console.error("Error:", error);
@@ -71,8 +68,9 @@
                 event.preventDefault();
                 const complaint = document.getElementById("complaintInput").value.trim();
                 const address = document.getElementById("addressInput").value.trim();
+                const file = document.getElementById("pic").value;
                 if (complaint && address) {
-                    addComplaint(complaint, address);
+                    addComplaint(complaint, address, file);
                 } else {
                     alert("Please enter both a complaint and an address.");
                 }
@@ -164,7 +162,7 @@
                         <label class="text-base text-black">
                             Please include any relevant images to support your report:
                         </label>
-                        <input type="file" accept="image/*" class="text-base text-neutral-300" />
+                        <input id="pic" type="file" accept="image/*" class="text-base text-neutral-300" />
                     </div>
                     <button
                         id="submit_complaint"
