@@ -32,8 +32,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert(`Error: ${result.error}`);
             }
         } catch (error) {
-             alert("Failed to submit complaint. Please try again.");
+           
             console.error("Error submitting complaint:", error);
+              alert("Failed to submit complaint. Please try again.");
            
         }
     });
