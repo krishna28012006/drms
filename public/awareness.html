@@ -9,9 +9,10 @@
       //const userEmail = localStorage.getItem("userEmail");
       // console.log(userEmail); 
       // This will log the email stored in localStorage
+        function handleRedirect() {
          const userDocRef = doc(db, "users", emailEmail.trim().toLowerCase());
           const userDocSnap = await getDoc(userDocRef);
-
+      
           if (userDocSnap.exists()) {
             const userData = userDocSnap.data();
             console.log("User Data:", userData);
@@ -22,6 +23,7 @@
               } else {
                 window.location.href = '/dashboard.html'
               }
+            }
       
     </script>
   </head>
@@ -85,7 +87,9 @@
         <nav class="flex items-center ml-auto max-md:hidden">
           <ul class="flex items-center">
             <li class="relative px-6 text-sm text-gray-600 h-[52px] flex items-center">
-              <a href="/dashboard.html">Dashboard</a>
+               <button onclick="handleRedirect()">
+              Dashboard
+               </button>
             </li>
             <li class="px-6 text-sm text-gray-600 h-[52px] flex items-center">
               <a href="weather.html">Weather</a>
