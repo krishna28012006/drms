@@ -5,39 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Drainage Health Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-  async function handleRedirect() {
-    // Your function code
-  }
-</script>
-  <script type="module">
-  // Import Firestore functions if not already imported
-  import { doc, getDoc } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"; // Adjust the version as needed
+     <script type="module">
+        // Import Firestore functions
+        import { doc, getDoc } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js"; // Adjust the version as needed
 
-  async function handleRedirect() {
-    const userEmail = localStorage.getItem("userEmail"); // Get the email from localStorage
-    if (!userEmail) {
-      console.warn("No user email found.");
-      return; // Exit if no email is found
-    }
+        async function handleRedirect() {
+            const userEmail = localStorage.getItem("userEmail"); // Get the email from localStorage
+            if (!userEmail) {
+                console.warn("No user email found.");
+                return; // Exit if no email is found
+            }
 
-    const userDocRef = doc(db, "users", userEmail.trim().toLowerCase()); // Use userEmail instead of emailEmail
-    const userDocSnap = await getDoc(userDocRef);
+            const userDocRef = doc(db, "users", userEmail.trim().toLowerCase());
+            const userDocSnap = await getDoc(userDocRef);
 
-    if (userDocSnap.exists()) {
-      const userData = userDocSnap.data();
-      console.log("User  Data:", userData);
+            if (userDocSnap.exists()) {
+                const userData = userDocSnap.data();
+                console.log("User  Data:", userData);
 
-      if (userData.role === "admin") {
-        window.location.href = '/admin.html';
-      } else {
-        window.location.href = '/dashboard.html';
-      }
-    } else {
-      console.warn("No user document found.");
-    }
-  }
-</script>
+                if (userData.role === "admin") {
+                    window.location.href = '/admin.html';
+                } else {
+                    window.location.href = '/dashboard.html';
+                }
+            } else {
+                console.warn("No user document found.");
+            }
+        }
+
+        // Attach the event listener to the button after the DOM is loaded
+        document.addEventListener("DOMContentLoaded", () => {
+            const dashboardButton = document.querySelector("#dashboardButton");
+            if (dashboardButton) {
+                dashboardButton.addEventListener("click", handleRedirect);
+            }
+        });
+    </script>
   </head>
   <body>
     <div class="flex flex-col bg-white min-h-screen">
