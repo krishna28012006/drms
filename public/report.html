@@ -25,14 +25,17 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-            async function addcomplaint (complaint) {
-               const userEmail = localStorage.getItem("userEmail");
-            try {
+         const userEmail = localStorage.getItem("userEmail");
+               const userDocRef = doc(db, "complaints", userEmail.trim().toLowerCase());
+        const userDocSnap = await getDoc(userDocRef);
 
+            async function addcomplaint (complaint) {
+               
+            try {
+                      await setDoc(userDocRef, { complaint });
    
 
-        const userDocRef = doc(db, "users", userEmail.trim().toLowerCase());
-        const userDocSnap = await getDoc(userDocRef);
+       
 
       
 
