@@ -25,6 +25,9 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
+            async function addcomplaint (email, password, cpassword, role, address) {
+            try {
+
     async function addcomplaint() {
         const userEmail = localStorage.getItem("userEmail"); // Get the email from localStorage
         if (!userEmail) {
