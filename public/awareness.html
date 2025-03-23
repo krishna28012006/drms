@@ -16,14 +16,15 @@
           if (userDocSnap.exists()) {
             const userData = userDocSnap.data();
             console.log("User Data:", userData);
+            
 
-            if (userData.password === password) {
+           
               if(userData.role === "admin") {
               window.location.href = '/admin.html'
               } else {
                 window.location.href = '/dashboard.html'
               }
-            }
+            
       
     </script>
   </head>
