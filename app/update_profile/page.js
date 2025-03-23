@@ -26,7 +26,7 @@ export default function ComplaintBox() {
 
           // Exclude the password field
           const { password, ...userDetails } = userData;
-
+            const { role, ...userDetails } = userData;
           // Convert object fields into an array for rendering
           const formattedData = Object.entries(userDetails).map(([key, value]) => ({
             field: key,
