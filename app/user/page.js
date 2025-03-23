@@ -10,17 +10,17 @@ export default function Profile() {
   const [isEditing, setIsEditing] = useState(false);
   const [newName, setNewName] = useState("");
   const [isClient, setIsClient] = useState(false);
-  const [userEmail, setUserEmail] = useState(null); // Corrected line
+  const [userEmail, setUser Email] = useState(null); // Corrected line
+
+  const router = useRouter(); // Move this line here
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       setIsClient(true);
       const email = localStorage.getItem("userEmail");
-      setUserEmail(email);
+      setUser Email(email);
     }
   }, []);
-
-  const router = useRouter();
 
   useEffect(() => {
     if (isClient && userEmail) {
