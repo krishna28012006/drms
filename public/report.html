@@ -51,7 +51,9 @@
 
     // Attach the event listener to the button after the DOM is loaded
     document.addEventListener("DOMContentLoaded", () => {
-        const dashboardButton = document.querySelector("#dashboardButton");
+          document.getElementById("signupButton").addEventListener("click", (event) => {
+                event.preventDefault();
+                const email = document.getElementById("email").value.trim();
         if (dashboardButton) {
             dashboardButton.addEventListener("click", handleRedirect);
         }
