@@ -25,7 +25,7 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-    async function handleRedirect() {
+    async function addcomplaint() {
         const userEmail = localStorage.getItem("userEmail"); // Get the email from localStorage
         if (!userEmail) {
             console.warn("No user email found.");
@@ -35,27 +35,15 @@
         const userDocRef = doc(db, "users", userEmail.trim().toLowerCase());
         const userDocSnap = await getDoc(userDocRef);
 
-        if (userDocSnap.exists()) {
-            const userData = userDocSnap.data();
-            console.log("User  Data:", userData);
-
-            if (userData.role === "admin") {
-                window.location.href = '/admin.html';
-            } else {
-                window.location.href = '/dashboard.html';
-            }
-        } else {
-            console.warn("No user document found.");
-        }
-    }
+      
 
     // Attach the event listener to the button after the DOM is loaded
     document.addEventListener("DOMContentLoaded", () => {
-          document.getElementById("signupButton").addEventListener("click", (event) => {
+          document.getElementById("submit_complaint").addEventListener("click", (event) => {
                 event.preventDefault();
                 const email = document.getElementById("email").value.trim();
-        if (dashboardButton) {
-            dashboardButton.addEventListener("click", handleRedirect);
+        if (submit_complaint) {
+            submit_complaint.addEventListener("click", addcomplaint);
         }
     });
    });
