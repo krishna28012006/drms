@@ -9,15 +9,14 @@ export default function Profile() {
   const [dataNodes, setDataNodes] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [newName, setNewName] = useState("");
-  const [isClient, setIsClient] = useState(false); // To ensure we are in the client-side
-  const [userEmail, setUserEmail] = useState(null);
+  const [isClient, setIsClient] = useState(false);
+  const [userEmail, setUser Email] = useState(null);
 
-  // Ensure the router is only used on the client-side
   useEffect(() => {
     if (typeof window !== "undefined") {
       setIsClient(true);
       const email = localStorage.getItem("userEmail");
-      setUserEmail(email); // Retrieve email from localStorage only on the client
+      setUser Email(email);
     }
   }, []);
 
@@ -56,7 +55,7 @@ export default function Profile() {
 
   const handleLogout = () => {
     localStorage.removeItem("userEmail");
-    if (isClient) router.push("/"); // Redirect only when on the client side
+    if (isClient) router.push("/");
   };
 
   const handleEditProfile = async () => {
@@ -76,7 +75,7 @@ export default function Profile() {
   };
 
   if (!isClient) {
-    return <div>Loading...</div>; // Return a loading state until the component is mounted in the client
+    return <div>Loading...</div>;
   }
 
   return (
