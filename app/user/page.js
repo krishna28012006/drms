@@ -9,51 +9,54 @@ export default function Profile() {
   const [dataNodes, setDataNodes] = useState([]);
   const [isEditing, setIsEditing] = useState(false);
   const [newName, setNewName] = useState("");
-  const userEmail = typeof window !== "undefined" ? localStorage.getItem("userEmail") : null;
+  const [isClient, setIsClient] = useState(false); // To ensure we are in the client-side
+  const [userEmail, setUserEmail] = useState(null);
+
+  // Ensure the router is only used on the client-side
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsClient(true);
+      const email = localStorage.getItem("userEmail");
+      setUserEmail(email); // Retrieve email from localStorage only on the client
+    }
+  }, []);
+
   const router = useRouter();
 
   useEffect(() => {
-    if (!userEmail) {
-      console.warn("No user email found.");
-      return;
-    }
+    if (isClient && userEmail) {
+      async function fetchData() {
+        try {
+          const userRef = doc(db, "users", userEmail);
+          const userSnap = await getDoc(userRef);
 
-    async function fetchData() {
-      try {
-        console.log("Fetching user details for:", userEmail);
-        const userRef = doc(db, "users", userEmail);
-        const userSnap = await getDoc(userRef);
+          if (userSnap.exists()) {
+            const userData = userSnap.data();
+            const { password, ...userDetails } = userData;
 
-        if (userSnap.exists()) {
-          const userData = userSnap.data();
-          console.log("User Data Found:", userData);
+            const formattedData = Object.entries(userDetails).map(([key, value]) => ({
+              field: key,
+              value: value,
+            }));
 
-          // Exclude the password field
-          const { password, ...userDetails } = userData;
-
-          // Convert object fields into an array for rendering
-          const formattedData = Object.entries(userDetails).map(([key, value]) => ({
-            field: key,
-            value: value,
-          }));
-
-          setDataNodes(formattedData);
-          setNewName(userData.name || ""); // Pre-fill the new name for editing
-        } else {
-          console.warn("No user found.");
-          setDataNodes([]);
+            setDataNodes(formattedData);
+            setNewName(userData.name || "");
+          } else {
+            console.warn("No user found.");
+            setDataNodes([]);
+          }
+        } catch (error) {
+          console.error("Error fetching data:", error);
         }
-      } catch (error) {
-        console.error("Error fetching data:", error);
       }
-    }
 
-    fetchData();
-  }, [userEmail]);
+      fetchData();
+    }
+  }, [isClient, userEmail]);
 
   const handleLogout = () => {
     localStorage.removeItem("userEmail");
-    router.push("/"); // Redirect to home page
+    if (isClient) router.push("/"); // Redirect only when on the client side
   };
 
   const handleEditProfile = async () => {
@@ -71,6 +74,10 @@ export default function Profile() {
       console.error("Error updating profile:", error);
     }
   };
+
+  if (!isClient) {
+    return <div>Loading...</div>; // Return a loading state until the component is mounted in the client
+  }
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
