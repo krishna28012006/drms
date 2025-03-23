@@ -10,7 +10,7 @@ export default function Profile() {
   const [isEditing, setIsEditing] = useState(false);
   const [newName, setNewName] = useState("");
   const [isClient, setIsClient] = useState(false);
-  const [userEmail, setUser Email] = useState(null);
+  const [userEmail, setUser Email] = useState(null); // Corrected line
 
   useEffect(() => {
     if (typeof window !== "undefined") {
