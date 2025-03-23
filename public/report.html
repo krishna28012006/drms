@@ -1,214 +1,146 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SMART DRINAGE SYSTEM</title>
+    <title>SMART DRAINAGE SYSTEM</title>
     <script src="https://cdn.tailwindcss.com"></script>
-       <script type="module">
-    // Import Firebase functions
-         import { setDoc } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-    import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
+    <script type="module">
+        // Import Firebase functions
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+        import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-firestore.js";
 
-    // Your Firebase configuration
-  const firebaseConfig = {
-  apiKey: "AIzaSyA8s1TWWjx3pYrYZjbw243RBACYkZrtmSo",
-  authDomain: "drms-44bcc.firebaseapp.com",
-  projectId: "drms-44bcc",
-  storageBucket: "drms-44bcc.firebasestorage.app",
-  messagingSenderId: "111500403496",
-  appId: "1:111500403496:web:730530ae3533dd89e1261d",
-  measurementId: "G-Y2XMZMD1L7",
-};
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyA8s1TWWjx3pYrYZjbw243RBACYkZrtmSo",
+            authDomain: "drms-44bcc.firebaseapp.com",
+            projectId: "drms-44bcc",
+            storageBucket: "drms-44bcc.firebasestorage.app",
+            messagingSenderId: "111500403496",
+            appId: "1:111500403496:web:730530ae3533dd89e1261d",
+            measurementId: "G-Y2XMZMD1L7",
+        };
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
 
-         const userEmail = localStorage.getItem("userEmail");
-               const userDocRef = doc(db, "complaints", userEmail.trim().toLowerCase());
-        const userDocSnap = await getDoc(userDocRef);
+        async function addComplaint(complaint) {
+            const userEmail = localStorage.getItem("userEmail");
+            if (!userEmail) {
+                alert("User  not logged in.");
+                return;
+            }
 
-            async function addcomplaint (complaint) {
-               
+            const userDocRef = doc(db, "complaints", userEmail.trim().toLowerCase());
             try {
-                      await setDoc(userDocRef, { complaint });
-                } catch (error) {
+                await setDoc(userDocRef, { complaint });
+                alert("Complaint submitted successfully!");
+            } catch (error) {
                 console.error("Error:", error);
                 alert("Something went wrong. Please try again.");
             }
         }
 
-    // Attach the event listener to the button after the DOM is loaded
-    document.addEventListener("DOMContentLoaded", () => {
-          document.getElementById("submit_complaint").addEventListener("click", (event) => {
+        // Attach the event listener to the form after the DOM is loaded
+        document.addEventListener("DOMContentLoaded", () => {
+            const form = document.getElementById("complaintForm");
+            form.addEventListener("submit", (event) => {
                 event.preventDefault();
-                const complaint = document.getElementById("complaint").value.trim();
-               addcomplaint(complaint);
-    });
-   });
-</script>
-  </head>
-  <body class="font-sans">
+                const complaint = document.getElementById("complaintInput").value.trim();
+                if (complaint) {
+                    addComplaint(complaint);
+                } else {
+                    alert("Please enter a complaint.");
+                }
+            });
+        });
+    </script>
+</head>
+<body class="font-sans">
     <div class="flex flex-col bg-white min-h-screen">
-      <!-- Header/Navigation -->
-      <header class="flex justify-between items-center px-6 w-full h-14 bg-white shadow-sm">
-        <!-- Logo and Title -->
-        <div class="flex gap-2.5 items-center">
-          <svg
-            width="36"
-            height="37"
-            viewBox="0 0 36 37"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-[36px] h-[36px]"
-          >
-            <rect y="0.5" width="36" height="36" stroke="#BCC1CA"></rect>
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M25.0553 8.69189V20.212L33.0664 14.2334L25.0553 8.69189Z"
-              fill="#70A0E9"
-            ></path>
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M34.3676 33.173V16.9893L25.0493 23.9421V33.173H34.3676Z"
-              fill="#5068E2"
-            ></path>
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M10.9506 33.1666V24.395L1.63232 33.1666H10.9506Z"
-              fill="#5068E2"
-            ></path>
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M17.4943 14.1247L18.4912 15.1323L22.6573 19.3366V6.96081L17.9982 3.62329L13.3391 6.96081V17.8956L16.4464 15.0768L17.4943 14.1247Z"
-              fill="#92B7EE"
-            ></path>
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M22.5999 23.7343L17.3273 18.4114L13.2816 22.0823V33.2468H22.5999V23.7343Z"
-              fill="#788BE9"
-            ></path>
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M10.9506 8.67798L1.63232 15.353V28.54L10.9506 20.0795V8.67798Z"
-              fill="#70A0E9"
-            ></path>
-          </svg>
-          <h1 class="text-3xl text-black">Drainage Health Hub</h1>
-        </div>
-
-        <!-- Desktop Navigation aligned to the right -->
-        <nav class="flex items-center ml-auto max-sm:hidden">
-             <div class="flex gap-4 items-center ml-6">
-         <button id="dashboardButton" class="relative px-6 text-sm text-gray-600 h-[52px] flex items-center">       
-    Dashboard
-</button>
-          </div>
-          <ul class="flex items-center">
-          
-            <li class="px-6 text-sm text-gray-600 h-[52px] flex items-center">
-              <a href="weather.html">Weather</a>
-            </li>
-            <li class="px-6 text-sm text-gray-600 h-[52px] flex items-center">
-              <a href="awareness.html" class="text-sm font-bold text-indigo-500">Awareness</a>
-            </li>
-            
-          </ul>
-          <div class="flex gap-4 items-center ml-6">
-            <button 
-              onclick="window.location.href = '/report.html';"
-              class="flex gap-1.5 items-center px-3.5 py-2 rounded border border-indigo-500"
-            >
-              <svg
-                width="17"
-                height="17"
-                viewBox="0 0 17 17"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                class="w-[16px] h-[16px]"
-              >
-                <path
-                  d="M8.5 14.77L8.5 2.22998"
-                  stroke="#5068E2"
-                  stroke-width="1.368"
-                  stroke-miterlimit="10"
-                  stroke-linecap="square"
-                ></path>
-                <path
-                  d="M6.21004 6.21997L6.21004 11.92L2.79004 11.92L6.21004 6.21997Z"
-                  stroke="#5068E2"
-                  stroke-width="1.368"
-                  stroke-miterlimit="10"
-                  stroke-linecap="square"
-                ></path>
-                <path
-                  d="M10.79 6.21997L10.79 11.92L14.21 11.92L10.79 6.21997Z"
-                  stroke="#5068E2"
-                  stroke-width="1.368"
-                  stroke-miterlimit="10"
-                  stroke-linecap="square"
-                ></ path>
-              </svg>
-              <span class="text-sm text-indigo-500">Report Complaint</span>
-            </button>
-            <button onclick="window.location.href = '/user';" aria-label="User  profile">
-              <img
-                src="profile.jpg"
-                alt="User  profile"
-                class="w-[36px] h-[36px] rounded-[18px]"
-              />
-            </button>
-          </div>
-        </nav>
-      </header>
-
-      <main>
-        <!-- Report Drainage Issues Section -->
-        <section class="flex flex-col items-center px-6 py-24 max-sm:px-4 max-sm:py-12">
-          <h2 class="mb-6 text-3xl text-center text-zinc-900">Report Drainage Issues</h2>
-          <p class="mb-6 text-base text-center text-gray-600 max-w-[800px]">
-            To assist us in understanding and addressing your issue, please provide a clear description of the drainage problem, including details such as the exact location or address of the issue, or if applicable, the geographic coordinates (latitude and longitude).
-          </p>
-          <form class="flex flex-col gap-5 w-full max-w-[400px]">
-            <div class="flex flex-col gap-2">
-              <label for="location" class="text-base text-black">
-                Location (Please provide address or latitude/longitude):
-              </label>
-              <div class="flex items-center px-4 rounded-sm border border-neutral-300 h-[43px]">
-                <input
-                  type="text"
-                  id="complaint"
-                  placeholder="1234 Example Street, San Jose, CA 95122"
-                  class="w-full text-base text-neutral-300"
-                />
-              </div>
+        <!-- Header/Navigation -->
+        <header class="flex justify-between items-center px-6 w-full h-14 bg-white shadow-sm">
+            <div class="flex gap-2.5 items-center">
+                <svg width="36" height="37" viewBox="0 0 36 37" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-[36px] h-[36px]">
+                    <rect y="0.5" width="36" height="36" stroke="#BCC1CA"></rect>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M25.0553 8.69189V20.212L33.0664 14.2334L25.0553 8.69189Z" fill="#70A0E9"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M34.3676 33.173V16.9893L25.0493 23.9421V33.173H34.3676Z" fill="#5068E2"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10.9506 33.1666V24.395L1.63232 33.1666H10.9506Z" fill="#5068E2"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M17.4943 14.1247L18.4912 15.1323L22.6573 19.3366V6.96081L17.9982 3.62329L13.3391 6.96081V17.8956L16.4464 15.0768L17.4943 14.1247Z" fill="#92B7EE"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M22.5999 23.7343L17.3273 18.4114L13.2816 22.0823V33.2468H22.5999V23.7343Z" fill="#788BE9"></path>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M10.9506 8.67798L1.63232 15.353V28.54L10.9506 20.0795V8.67798Z" fill="#70A0E9"></path>
+                </svg>
+                <h1 class="text-3xl text-black">Drainage Health Hub</h1>
             </div>
-            <div class="flex flex-col gap-2">
-              <label class="text-base text-black">
-                Please include any relevant images to support your report:
-              </label>
-              <p class="text-base text-stone-500">Upload Your Images</p>
-            </div>
-            <button
-              id="submit_complaint"
-              type="submit"
-              class="text-lg text-white bg-indigo-500 rounded h-[52px] w-[155px]"
-            >
-              Submit Report
-            </button>
-          </form>
-        </section>
+            <nav class="flex items-center ml-auto max-sm:hidden">
+                <div class="flex gap-4 items-center ml-6">
+                    <button id="dashboardButton" class="relative px-6 text-sm text-gray-600 h-[52px] flex items-center">       
+                        Dashboard
+                    </button>
+                </div>
+                <ul class="flex items-center">
+                    <li class="px-6 text-sm text-gray-600 h-[52px] flex items-center">
+                        <a href="weather.html">Weather</a>
+                    </li>
+                    <li class="px-6 text-sm text-gray-600 h-[52px] flex items-center">
+                        <a href="awareness.html" class="text-sm font-bold text-indigo-500">Awareness</a>
+                    </li>
+                </ul>
+                <div class="flex gap-4 items-center ml-6">
+                    <button onclick="window.location.href = '/report.html';" class="flex gap-1.5 items-center px-3.5 py-2 rounded border border-indigo-500">
+                        <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-[16px] h-[16px]">
+                            <path d="M8.5 14.77L8.5 2.22998" stroke="#5068E2" stroke-width="1.368" stroke-miterlimit="10" stroke-linecap="square"></path>
+                            <path d="M6.21004 6.21997L6.21004 11.92L2.79004 11.92L6.21004 6.21997Z" stroke="#5068E2" stroke-width="1.368" stroke-miterlimit="10" stroke-linecap="square"></path>
+                            <path d="M10.79 6.21997L10.79 11.92L14.21 11.92L10.79 6.21997Z" stroke="#5068E2" stroke-width="1.368" stroke-miterlimit="10" stroke-linecap="square"></path>
+                        </svg>
+                        <span class="text-sm text-indigo-500">Report Complaint</span>
+                    </button>
+                    <button onclick="window.location.href = '/user';" aria-label="User  profile">
+                        <img src="profile.jpg" alt="User  profile" class="w-[36px] h-[36px] rounded-[18px]" />
+                    </button>
+                </div>
+            </nav>
+        </header>
 
-      </main>
+        <main>
+            <!-- Report Drainage Issues Section -->
+            <section class="flex flex-col items-center px-6 py-24 max-sm:px-4 max-sm:py-12">
+                <h2 class="mb-6 text-3xl text-center text-zinc-900">Report Drainage Issues</h2>
+                <p class="mb-6 text-base text-center text-gray-600 max-w-[800px]">
+                    To assist us in understanding and addressing your issue, please provide a clear description of the drainage problem, including details such as the exact location or address of the issue, or if applicable, the geographic coordinates (latitude and longitude).
+                </p>
+                <form id="complaintForm" class="flex flex-col gap-5 w-full max-w-[400px]">
+                    <div class="flex flex-col gap-2">
+                        <label for="complaintInput" class="text-base text-black">
+                            Location (Please provide address or latitude/longitude):
+                        </label>
+                        <div class="flex items-center px-4 rounded-sm border border-neutral-300 h-[43px]">
+                            <input
+                                type="text"
+                                id="complaintInput"
+                                placeholder="1234 Example Street, San Jose, CA 95122"
+                                class="w-full text-base text-neutral-300"
+                            />
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label class="text-base text-black">
+                            Please include any relevant images to support your report:
+                        </label>
+                        <input type="file" accept="image/*" class="text-base text-neutral-300" />
+                    </div>
+                    <button
+                        id="submit_complaint"
+                        type="submit"
+                        class="text-lg text-white bg-indigo-500 rounded h-[52px] w-[155px]"
+                    >
+                        Submit Report
+                    </button>
+                </form>
+            </section>
+        </main>
     </div>
     <script src="/submit_complaint.js"></script>
-  </body>
+</body>
 </html>
