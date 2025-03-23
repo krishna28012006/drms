@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { db } from "../../lib/firebase"; // Ensure the path is correct
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
 
 export default function ComplaintBox() {
   const [dataNodes, setDataNodes] = useState([]);
@@ -46,16 +46,30 @@ export default function ComplaintBox() {
     fetchData();
   }, [userEmail]);
 
-  const handleEdit = () => {
-    // Logic for saving user details
-    console.log("Save button clicked");
-    // You can implement saving logic here
-  };
-
   const handleChange = (index, value) => {
     const updatedDataNodes = [...dataNodes];
     updatedDataNodes[index].value = value;
     setDataNodes(updatedDataNodes);
+  };
+
+  const handleEdit = async () => {
+    if (!userEmail) return;
+
+    try {
+      const userRef = doc(db, "users", userEmail);
+      const updatedData = {};
+
+      // Prepare the updated data object
+      dataNodes.forEach((item) => {
+        updatedData[item.field] = item.value;
+      });
+
+      // Update the user document in Firestore
+      await updateDoc(userRef, updatedData);
+      console.log("User  data updated successfully.");
+    } catch (error) {
+      console.error("Error updating data:", error);
+    }
   };
 
   return (
