@@ -2,96 +2,141 @@
 
 import { useState, useEffect } from "react";
 import { db } from "../../lib/firebase"; // Ensure the path is correct
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { useRouter } from "next/router";
 
-export default function ComplaintBox() {
+export default function Profile() {
   const [dataNodes, setDataNodes] = useState([]);
-  const userEmail = typeof window !== "undefined" ? localStorage.getItem("userEmail") : null;
+  const [isEditing, setIsEditing] = useState(false);
+  const [newName, setNewName] = useState("");
+  const [isClient, setIsClient] = useState(false); // To ensure we are in the client-side
+  const [userEmail, setUserEmail] = useState(null);
+
+  // Ensure the router is only used on the client-side
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setIsClient(true);
+      const email = localStorage.getItem("userEmail");
+      setUserEmail(email); // Retrieve email from localStorage only on the client
+    }
+  }, []);
+
+  const router = useRouter();
 
   useEffect(() => {
-    if (!userEmail) {
-      console.warn("No user email found.");
-      return;
-    }
+    if (isClient && userEmail) {
+      async function fetchData() {
+        try {
+          const userRef = doc(db, "users", userEmail);
+          const userSnap = await getDoc(userRef);
 
-    async function fetchData() {
-      try {
-        console.log("Fetching user details for:", userEmail);
-        const userRef = doc(db, "users", userEmail);
-        const userSnap = await getDoc(userRef);
+          if (userSnap.exists()) {
+            const userData = userSnap.data();
+            const { password, ...userDetails } = userData;
 
-        if (userSnap.exists()) {
-          const userData = userSnap.data();
-          console.log("User  Data Found:", userData);
+            const formattedData = Object.entries(userDetails).map(([key, value]) => ({
+              field: key,
+              value: value,
+            }));
 
-          // Exclude the password field
-          const { password, ...userDetails } = userData;
-
-          // Convert object fields into an array for rendering
-          const formattedData = Object.entries(userDetails).map(([key, value]) => ({
-            field: key,
-            value: value,
-          }));
-
-          setDataNodes(formattedData);
-        } else {
-          console.warn("No user found.");
-          setDataNodes([]);
+            setDataNodes(formattedData);
+            setNewName(userData.name || "");
+          } else {
+            console.warn("No user found.");
+            setDataNodes([]);
+          }
+        } catch (error) {
+          console.error("Error fetching data:", error);
         }
-      } catch (error) {
-        console.error("Error fetching data:", error);
       }
-    }
 
-    fetchData();
-  }, [userEmail]);
+      fetchData();
+    }
+  }, [isClient, userEmail]);
+
+  const handleLogout = () => {
+    localStorage.removeItem("userEmail");
+    if (isClient) router.push("/"); // Redirect only when on the client side
+  };
+
+  const handleEditProfile = async () => {
+    if (!newName) return;
+    try {
+      const userRef = doc(db, "users", userEmail);
+      await updateDoc(userRef, { name: newName });
+      setIsEditing(false);
+      setDataNodes((prevData) =>
+        prevData.map((item) =>
+          item.field === "name" ? { ...item, value: newName } : item
+        )
+      );
+    } catch (error) {
+      console.error("Error updating profile:", error);
+    }
+  };
+
+  if (!isClient) {
+    return <div>Loading...</div>; // Return a loading state until the component is mounted in the client
+  }
 
   return (
-    <div className="complaint-container">
-      <h2>Your Profile Details</h2>
-      {dataNodes.length > 0 ? (
-        <div className="complaint-card">
-          {dataNodes.map((item, index) => (
-            <div key={index} className="complaint-field">
-              <strong>{item.field}:</strong> <span>{item.value}</span>
-            </div>
-          ))}
-        </div>
-      ) : (
-        <p className="no-complaints">No data found.</p>
-      )}
+    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+      <div className="w-full max-w-lg bg-white p-6 rounded-lg shadow-lg">
+        <h2 className="text-3xl text-center mb-6 font-semibold text-gray-800">Your Profile</h2>
 
-      <style jsx>{`
-        .complaint-container {
-          padding: 20px;
-          text-align: center;
-          background-image: url('https://example.com/your-background-image.jpg'); /* Replace with your background image URL */
-          background-size: cover;
-          background-position: center;
-          min-height: 100vh; /* Ensure it covers the full height */
-        }
-        .complaint-card {
-          background: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
-          padding: 15px;
-          border-radius: 10px;
-          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-          max-width: 400px;
-          margin: 20px auto;
-        }
-        .complaint-field {
-          display: flex;
-          justify-content: space-between;
-          background: #ffffff;
-          padding: 10px;
-          margin: 5px 0;
-          border-radius: 5px;
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-        }
-        .no-complaints {
-          color: #888;
-          font-size: 16px;
-        }
-      `}</style>
+        {dataNodes.length > 0 ? (
+          <div className="space-y-4">
+            {dataNodes.map((item, index) => (
+              <div key={index} className="flex justify-between items-center">
+                <span className="font-medium text-gray-700">{item.field}:</span>
+                <span className="text-gray-500">{item.value}</span>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-center text-gray-600">Loading...</p>
+        )}
+
+        <div className="mt-6 space-x-4 flex justify-center">
+          <button
+            onClick={() => setIsEditing(!isEditing)}
+            className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition"
+          >
+            {isEditing ? "Cancel" : "Edit Profile"}
+          </button>
+          <button
+            onClick={handleLogout}
+            className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600 transition"
+          >
+            Logout
+          </button>
+        </div>
+
+        {isEditing && (
+          <div className="mt-6">
+            <div className="mb-4">
+              <label htmlFor="name" className="block text-gray-700">Name</label>
+              <input
+                type="text"
+                id="name"
+                value={newName}
+                onChange={(e) => setNewName(e.target.value)}
+                className="w-full mt-2 p-2 border border-gray-300 rounded-md"
+                placeholder="Enter your new name"
+              />
+            </div>
+
+            <div className="flex justify-center space-x-4">
+              <button
+                onClick={handleEditProfile}
+                className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition"
+              >
+                Save Changes
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
