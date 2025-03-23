@@ -11,7 +11,7 @@ export default function ComplaintBox() {
   useEffect(() => {
     if (!userEmail) {
       console.warn("No user email found.");
-      return;
+      return; // Optionally redirect or show a message here
     }
 
     async function fetchData() {
@@ -24,9 +24,9 @@ export default function ComplaintBox() {
           const userData = userSnap.data();
           console.log("User  Data Found:", userData);
 
-          // Exclude the password field
+          // Exclude the password and role fields
           const { password, role, ...userDetails } = userData;
-          //  const { role, ...userDetails } = userData;
+
           // Convert object fields into an array for rendering
           const formattedData = Object.entries(userDetails).map(([key, value]) => ({
             field: key,
