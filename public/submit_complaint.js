@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-            const response = await fetch("https://drms-five.vercel.app/api/submit-complaint", {
+            const response = await fetch("https://drms-five.vercel.app/api/submit-complaint.js", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email: userEmail, complaint: complaintText }),
