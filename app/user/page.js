@@ -76,7 +76,7 @@ export default function ComplaintBox() {
       )}
 
       <div className="button-container">
-        <button className="edit-button" onClick={handleEdit}>Edit</button>
+        <button className="edit-button" onClick= window.location.href = "/update_profile"; >Edit</button>
         <button className="logout-button" onClick={handleLogout}>Logout</button>
       </div>
 
