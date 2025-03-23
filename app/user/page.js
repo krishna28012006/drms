@@ -1,6 +1,7 @@
 "use client";
+
 import { useState, useEffect } from "react";
-import { db } from "../lib/firebase";
+import { db } from "../../lib/firebase"; // Ensure the path is correct
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { useRouter } from "next/router";
 
@@ -19,13 +20,18 @@ export default function Profile() {
 
     async function fetchData() {
       try {
+        console.log("Fetching user details for:", userEmail);
         const userRef = doc(db, "users", userEmail);
         const userSnap = await getDoc(userRef);
 
         if (userSnap.exists()) {
           const userData = userSnap.data();
+          console.log("User Data Found:", userData);
+
+          // Exclude the password field
           const { password, ...userDetails } = userData;
 
+          // Convert object fields into an array for rendering
           const formattedData = Object.entries(userDetails).map(([key, value]) => ({
             field: key,
             value: value,
@@ -69,7 +75,7 @@ export default function Profile() {
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="w-full max-w-lg bg-white p-6 rounded-lg shadow-lg">
-        <h2 className="text-3xl text-center mb-6 font-semibold text-gray-800">User Profile</h2>
+        <h2 className="text-3xl text-center mb-6 font-semibold text-gray-800">Your Profile</h2>
 
         {dataNodes.length > 0 ? (
           <div className="space-y-4">
@@ -81,7 +87,7 @@ export default function Profile() {
             ))}
           </div>
         ) : (
-          <p className="text-center text-gray-600">Loading profile...</p>
+          <p className="text-center text-gray-600">Loading...</p>
         )}
 
         <div className="mt-6 space-x-4 flex justify-center">
