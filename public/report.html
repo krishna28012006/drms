@@ -25,7 +25,7 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        async function addComplaint(complaint) {
+        async function addComplaint(complaint, address) {
             const userEmail = localStorage.getItem("userEmail");
             if (!userEmail) {
                 alert("User  not logged in.");
@@ -34,7 +34,7 @@
 
             const userDocRef = doc(db, "complaints", userEmail.trim().toLowerCase());
             try {
-                await setDoc(userDocRef, { complaint });
+                await setDoc(userDocRef, { complaint, address });
                 alert("Complaint submitted successfully!");
             } catch (error) {
                 console.error("Error:", error);
@@ -48,10 +48,11 @@
             form.addEventListener("submit", (event) => {
                 event.preventDefault();
                 const complaint = document.getElementById("complaintInput").value.trim();
-                if (complaint) {
-                    addComplaint(complaint);
+                const address = document.getElementById("addressInput").value.trim();
+                if (complaint && address) {
+                    addComplaint(complaint, address);
                 } else {
-                    alert("Please enter a complaint.");
+                    alert("Please enter both a complaint and an address.");
                 }
             });
         });
@@ -113,12 +114,25 @@
                 <form id="complaintForm" class="flex flex-col gap-5 w-full max-w-[400px]">
                     <div class="flex flex-col gap-2">
                         <label for="complaintInput" class="text-base text-black">
-                            Location (Please provide address or latitude/longitude):
+                            Complaint Description:
                         </label>
                         <div class="flex items-center px-4 rounded-sm border border-neutral-300 h-[43px]">
                             <input
                                 type="text"
                                 id="complaintInput"
+                                placeholder="Describe the drainage issue"
+                                class="w-full text-base text-neutral-300"
+                            />
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label for="addressInput" class="text-base text-black">
+                            Address (Please provide the address):
+                        </label>
+                        <div class="flex items-center px-4 rounded-sm border border-neutral-300 h-[43px]">
+                            <input
+                                type="text"
+                                id="addressInput"
                                 placeholder="1234 Example Street, San Jose, CA 95122"
                                 class="w-full text-base text-neutral-300"
                             />
