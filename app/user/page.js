@@ -46,12 +46,6 @@ export default function ComplaintBox() {
     fetchData();
   }, [userEmail]);
 
-  const handleEdit = () => {
-    // Logic for editing user details
-    console.log("Edit button clicked");
-    // You can implement navigation to an edit page or open a modal here
-  };
-
   const handleLogout = () => {
     // Logic for logging out the user
     console.log("Logout button clicked");
