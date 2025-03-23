@@ -16,7 +16,7 @@ export default function Profile() {
     if (typeof window !== "undefined") {
       setIsClient(true);
       const email = localStorage.getItem("userEmail");
-      setUser Email(email);
+      setUserEmail(email);
     }
   }, []);
 
