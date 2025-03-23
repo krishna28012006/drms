@@ -5,6 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Drainage Health Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module"> const userEmail = localStorage.getItem("userEmail");
+      // console.log(userEmail); 
+      // This will log the email stored in localStorage
+        <script>
+        function handleRedirect(userRole) {
+            if (userRole === "admin") {
+                window.location.href = 'admin.html'; // Redirect to admin page
+            } else if (userRole === "user") {
+                window.location.href = 'user.html'; // Redirect to user page
+            } else {
+                console.warn("Unknown user role");
+            }
+        }
+    </script>
+    </script>
   </head>
   <body>
     <div class="flex flex-col bg-white min-h-screen">
