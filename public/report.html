@@ -45,9 +45,7 @@
           document.getElementById("submit_complaint").addEventListener("click", (event) => {
                 event.preventDefault();
                 const email = document.getElementById("email").value.trim();
-        if (submit_complaint) {
-            submit_complaint.addEventListener("click", addcomplaint);
-        }
+               newcomplaint(complaint);
     });
    });
 </script>
