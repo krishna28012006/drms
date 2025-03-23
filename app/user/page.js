@@ -46,6 +46,20 @@ export default function ComplaintBox() {
     fetchData();
   }, [userEmail]);
 
+  const handleEdit = () => {
+    // Logic for editing user details
+    console.log("Edit button clicked");
+    // You can implement navigation to an edit page or open a modal here
+  };
+
+  const handleLogout = () => {
+    // Logic for logging out the user
+    console.log("Logout button clicked");
+    localStorage.removeItem("userEmail"); // Example of clearing user data
+    // Redirect to login or home page
+    window.location.href = "/"; // Redirect to home page (adjust as needed)
+  };
+
   return (
     <div className="complaint-container">
       <h2 className="title">Your Profile Details</h2>
@@ -60,6 +74,11 @@ export default function ComplaintBox() {
       ) : (
         <p className="no-complaints">No data found.</p>
       )}
+
+      <div className="button-container">
+        <button className="edit-button" onClick={handleEdit}>Edit</button>
+        <button className="logout-button" onClick={handleLogout}>Logout</button>
+      </div>
 
       <style jsx>{`
         .complaint-container {
@@ -99,6 +118,23 @@ export default function ComplaintBox() {
         .no-complaints {
           color: #888;
           font-size: 16px;
+        }
+        .button-container {
+          margin-top: 20px;
+        }
+        .edit-button, .logout-button {
+          background-color: #0095f6; /* Instagram blue */
+          color: white;
+          border: none;
+          border-radius: 5px;
+          padding: 10px 15px;
+          margin: 5px;
+          cursor: pointer;
+          font-size: 16px;
+          transition: background-color 0.3s;
+        }
+        .edit-button:hover, .logout-button:hover {
+          background-color: #007bbf; /* Darker blue on hover */
         }
       `}</style>
     </div>
