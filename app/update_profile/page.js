@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -48,12 +47,16 @@ export default function ComplaintBox() {
   }, [userEmail]);
 
   const handleEdit = () => {
-    // Logic for editing user details
-    console.log("Edit button clicked");
-    // You can implement navigation to an edit page or open a modal here
+    // Logic for saving user details
+    console.log("Save button clicked");
+    // You can implement saving logic here
   };
 
- 
+  const handleChange = (index, value) => {
+    const updatedDataNodes = [...dataNodes];
+    updatedDataNodes[index].value = value;
+    setDataNodes(updatedDataNodes);
+  };
 
   return (
     <div className="complaint-container">
@@ -62,7 +65,13 @@ export default function ComplaintBox() {
         <div className="complaint-card">
           {dataNodes.map((item, index) => (
             <div key={index} className="complaint-field">
-              <strong>{item.field}:</strong> <span>{item.value}</span>
+              <strong>{item.field}:</strong>
+              <input
+                type="text"
+                value={item.value}
+                onChange={(e) => handleChange(index, e.target.value)}
+                className="input-field"
+              />
             </div>
           ))}
         </div>
@@ -71,8 +80,7 @@ export default function ComplaintBox() {
       )}
 
       <div className="button-container">
-        <button className="edit-button" onClick={handleEdit}>save</button>
-      
+        <button className="edit-button" onClick={handleEdit}>Save</button>
       </div>
 
       <style jsx>{`
@@ -110,6 +118,12 @@ export default function ComplaintBox() {
           border-radius: 8px; /* Rounded corners */
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
         }
+        .input-field {
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          padding: 8px;
+          width: 60%; /* Adjust width as needed */
+        }
         .no-complaints {
           color: #888;
           font-size: 16px;
@@ -117,7 +131,7 @@ export default function ComplaintBox() {
         .button-container {
           margin-top: 20px;
         }
-        .edit-button, .logout-button {
+        .edit-button {
           background-color: #0095f6; /* Instagram blue */
           color: white;
           border: none;
@@ -128,7 +142,7 @@ export default function ComplaintBox() {
           font-size: 16px;
           transition: background-color 0.3s;
         }
-        .edit-button:hover, .logout-button:hover {
+        .edit-button:hover {
           background-color: #007bbf; /* Darker blue on hover */
         }
       `}</style>
