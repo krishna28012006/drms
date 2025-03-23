@@ -25,15 +25,11 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-            async function addcomplaint (email, password, cpassword, role, address) {
+            async function addcomplaint (complaint) {
+               const userEmail = localStorage.getItem("userEmail");
             try {
 
-    async function addcomplaint() {
-        const userEmail = localStorage.getItem("userEmail"); // Get the email from localStorage
-        if (!userEmail) {
-            console.warn("No user email found.");
-            return; // Exit if no email is found
-        }
+   
 
         const userDocRef = doc(db, "users", userEmail.trim().toLowerCase());
         const userDocSnap = await getDoc(userDocRef);
@@ -45,7 +41,7 @@
           document.getElementById("submit_complaint").addEventListener("click", (event) => {
                 event.preventDefault();
                 const email = document.getElementById("email").value.trim();
-               newcomplaint(complaint);
+               addcomplaint(complaint);
     });
    });
 </script>
