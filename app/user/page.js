@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -49,7 +48,7 @@ export default function ComplaintBox() {
 
   return (
     <div className="complaint-container">
-      <h2>Your Profile Details</h2>
+      <h2 className="title">Your Profile Details</h2>
       {dataNodes.length > 0 ? (
         <div className="complaint-card">
           {dataNodes.map((item, index) => (
@@ -66,27 +65,36 @@ export default function ComplaintBox() {
         .complaint-container {
           padding: 20px;
           text-align: center;
-          background-image: url('https://example.com/your-background-image.jpg'); /* Replace with your background image URL */
-          background-size: cover;
-          background-position: center;
+          background-color: #fafafa; /* Light background color */
           min-height: 100vh; /* Ensure it covers the full height */
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+        }
+        .title {
+          font-size: 24px;
+          font-weight: bold;
+          color: #333;
+          margin-bottom: 20px;
         }
         .complaint-card {
-          background: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
-          padding: 15px;
-          border-radius: 10px;
-          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+          background: white; /* White background for the card */
+          padding: 20px;
+          border-radius: 12px; /* Rounded corners */
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
           max-width: 400px;
+          width: 100%; /* Responsive width */
           margin: 20px auto;
         }
         .complaint-field {
           display: flex;
           justify-content: space-between;
-          background: #ffffff;
-          padding: 10px;
-          margin: 5px 0;
-          border-radius: 5px;
-          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+          background: #f9f9f9; /* Light gray background for fields */
+          padding: 12px;
+          margin: 8px 0;
+          border-radius: 8px; /* Rounded corners */
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Subtle shadow */
         }
         .no-complaints {
           color: #888;
