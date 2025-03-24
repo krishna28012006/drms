@@ -70,6 +70,7 @@ export default function ComplaintBox() {
     } catch (error) {
       console.error("Error updating data:", error);
     }
+    window.location.href = "/user";
   };
 
   return (
