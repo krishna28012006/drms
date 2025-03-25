@@ -10,6 +10,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tensorflow-models/mobilenet": "^2.1.1",
+    "@tensorflow/tfjs": "^4.22.0",
     "cors": "^2.8.5",
     "express": "^4.21.2",
     "firebase": "^11.4.0",
