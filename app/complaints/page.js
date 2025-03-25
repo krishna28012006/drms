@@ -68,7 +68,7 @@ export default function ComplaintBox() {
           padding: 15px;
           border-radius: 10px;
           box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
-          max-width: 400px;
+          max-width: 1000px;
           margin: 20px auto;
         }
         .complaint-field {
