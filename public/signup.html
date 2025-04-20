@@ -67,7 +67,7 @@
                     if (password === cpassword) {
                         await setDoc(userDocRef, { email, password, role, address });
                         alert("New account created! You are now logged in.");
-                        window.location.href = "/dashboard.html";
+                        window.location.href = "/";
                     } else {
                         alert("Password and Confirm Password do not match.");
                     }
